@@ -1,17 +1,15 @@
-import { motion } from "framer-motion";
 import { Globe, GraduationCap } from "lucide-react";
 import portrait from "@/assets/dimitris-portrait.jpg";
+import { useScrollFade } from "@/hooks/useScrollFade";
 
 const About = () => {
+  const ref = useScrollFade();
+
   return (
     <section id="about" className="section-padding">
       <div className="container mx-auto max-w-6xl">
-        <div className="grid lg:grid-cols-2 gap-14 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-          >
+        <div ref={ref} className="grid lg:grid-cols-2 gap-14 items-center scroll-fade">
+          <div>
             <div className="relative inline-block">
               <div className="absolute inset-0 rounded-2xl bg-primary/15 blur-2xl scale-110" />
               <img
@@ -20,13 +18,9 @@ const About = () => {
                 className="relative rounded-2xl w-72 md:w-80 object-cover glow-border"
               />
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-          >
+          <div>
             <p className="text-primary font-heading font-semibold tracking-widest uppercase text-sm mb-3 text-center lg:text-left">About Me</p>
             <h2 className="text-4xl md:text-5xl font-heading font-extrabold mb-6 text-center lg:text-left">Who I Am</h2>
             <div className="space-y-4 text-muted-foreground leading-relaxed">
@@ -54,7 +48,7 @@ const About = () => {
                 <GraduationCap className="w-4 h-4" /> GTM Instructor
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

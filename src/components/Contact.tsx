@@ -1,15 +1,16 @@
-import { motion } from "framer-motion";
 import { Send } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
+import { useScrollFade } from "@/hooks/useScrollFade";
 
 const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", service: "", message: "" });
   const [gdprConsent, setGdprConsent] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
+  const ref = useScrollFade();
 
   const services = [
     "Meta & Social Ads",
@@ -35,7 +36,6 @@ const Contact = () => {
 
       if (error) throw error;
 
-      // Google Enhanced Conversions data layer push
       (window as any).dataLayer = (window as any).dataLayer || [];
       (window as any).dataLayer.push({
         event: "form_submit",
@@ -64,24 +64,13 @@ const Contact = () => {
 
   return (
     <section id="contact" className="py-12 md:py-20 px-4">
-      <div className="container mx-auto max-w-2xl">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-14"
-        >
+      <div ref={ref} className="container mx-auto max-w-2xl scroll-fade">
+        <div className="text-center mb-14">
           <p className="text-primary font-heading font-semibold tracking-widest uppercase text-sm mb-3">Get In Touch</p>
           <h2 className="text-4xl md:text-5xl font-heading font-extrabold">Contact Me</h2>
-        </motion.div>
+        </div>
 
-        <motion.form
-          onSubmit={handleSubmit}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="space-y-5"
-        >
+        <form onSubmit={handleSubmit} className="space-y-5">
           <input
             type="text"
             placeholder="Your Name"
@@ -141,7 +130,7 @@ const Contact = () => {
             <Send className="w-4 h-4" /> {isSubmitting ? "Sending..." : "Book a Free Strategy Call"}
           </button>
           <p className="text-center text-muted-foreground text-sm">I'll get back to you within 24 hours.</p>
-        </motion.form>
+        </form>
       </div>
     </section>
   );

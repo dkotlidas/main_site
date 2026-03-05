@@ -157,4 +157,15 @@
   .section-padding {
     @apply py-12 md:py-20 px-4;
   }
+
+  .scroll-fade {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  }
+
+  .scroll-fade.scroll-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

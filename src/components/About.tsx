@@ -27,8 +27,8 @@ const About = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <p className="text-primary font-heading font-semibold tracking-widest uppercase text-sm mb-3">About Me</p>
-            <h2 className="text-4xl md:text-5xl font-heading font-extrabold mb-6">Who I Am</h2>
+            <p className="text-primary font-heading font-semibold tracking-widest uppercase text-sm mb-3 text-center lg:text-left">About Me</p>
+            <h2 className="text-4xl md:text-5xl font-heading font-extrabold mb-6 text-center lg:text-left">Who I Am</h2>
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
                 With <span className="text-foreground font-medium">5+ years</span> as a freelance performance marketer, I specialize in scaling paid campaigns across Meta and Google platforms for e-commerce and lead gen businesses.

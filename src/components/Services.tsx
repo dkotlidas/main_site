@@ -1,10 +1,9 @@
 import { motion } from "framer-motion";
-import { Facebook, Search, Tags, Target, FileText, Megaphone, Share2 } from "lucide-react";
+import { Share2, Search, Tags, Target, FileText, Megaphone } from "lucide-react";
 
 const services = [
-  { icon: Facebook, title: "Meta Ads", desc: "If your Meta campaigns are burning budget without consistent returns, I build and manage full-funnel Meta Ads systems, from audience strategy to creative testing, that turn spend into predictable revenue." },
+  { icon: Share2, title: "Meta & Social Ads", desc: "If your paid social campaigns are spending without consistent returns, I build and manage full-funnel strategies across Meta, TikTok, LinkedIn, and other social platforms — combining precise audience targeting, creative testing, and continuous optimization to turn spend into predictable revenue." },
   { icon: Search, title: "Google Ads", desc: "If you're paying for clicks that don't convert, I restructure and manage Google Ads campaigns with a focus on intent, bidding strategy, and continuous optimization that drives qualified traffic." },
-  { icon: Share2, title: "Social Ads", desc: "If you want to expand beyond Meta, I manage paid campaigns across TikTok, LinkedIn, and other social platforms, adapting creative and targeting to each platform's unique audience behavior." },
   { icon: Tags, title: "Tag Manager Setup", desc: "If you're making decisions with incomplete or unreliable data, I implement clean GTM setups, tags, triggers, and variables, so your tracking actually reflects what's happening on your site." },
   { icon: Target, title: "Tracking & Attribution", desc: "If you don't know which campaigns are actually driving results, I set up server-side tracking, Meta CAPI, and enhanced conversions so your attribution is accurate and your decisions are data-driven." },
   { icon: FileText, title: "Strategy", desc: "If you're spending without a clear plan, I build a paid media strategy aligned with your business goals, channel mix, budget allocation, funnel structure, and KPIs that make sense for your market." },

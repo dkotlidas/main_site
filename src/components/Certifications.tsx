@@ -7,7 +7,7 @@ const certs = [
   "Google Tag Manager (GTM)",
   "Conversion Rate Optimization (CRO)",
   "Meta Blueprint",
-  "HubSpot Inbound Marketing",
+  
 ];
 
 const Certifications = () => {

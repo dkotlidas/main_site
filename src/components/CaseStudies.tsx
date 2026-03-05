@@ -5,46 +5,50 @@ const cases = [
   {
     icon: ShoppingBag,
     title: "Fashion E-Commerce",
-    platform: "Meta Ads",
+    tag: "Fashion E-Commerce · Meta Ads",
+    heroStat: { label: "ROAS", value: "9.71x" },
     stats: [
-      { label: "ROAS", value: "9.71x" },
       { label: "Revenue", value: "€162,957" },
       { label: "CPA", value: "€5.76" },
     ],
-    description: "Scaled a fashion e-commerce brand with precision targeting and creative testing on Meta.",
+    description: "Scaled a fashion e-commerce brand from €0 to €162K in revenue over 3 months using precision targeting and systematic creative testing on Meta.",
+    testimonial: {
+      quote: "Dimitris completely transformed our ad performance. The results spoke for themselves.",
+      author: "E.P., E-Commerce Manager",
+    },
   },
   {
     icon: TrendingUp,
     title: "Kitchenware E-Commerce",
-    platform: "Meta & Google Ads",
+    tag: "Kitchenware E-Commerce · Meta & Google Ads",
+    heroStat: { label: "ROAS", value: "4.35x" },
     stats: [
-      { label: "ROAS", value: "4.35x" },
       { label: "Revenue", value: "€171K+" },
       { label: "Purchases", value: "2,870" },
     ],
-    description: "Full-funnel paid strategy driving consistent purchases at scale for kitchenware products.",
+    description: "Built a full-funnel Meta & Google Ads strategy for a kitchenware brand, driving 2,870 purchases and €171K+ in revenue over a 4-month period.",
   },
   {
     icon: BarChart3,
-    title: "Retail Account Turnaround",
-    platform: "Meta Ads",
+    title: "Account Recovery — Retail",
+    tag: "Retail · Meta Ads",
+    heroStat: { label: "After", value: "8x ROAS" },
     stats: [
       { label: "Before", value: "2x ROAS" },
-      { label: "After", value: "8x ROAS" },
       { label: "Growth", value: "4x" },
     ],
-    description: "Took over a failing account and restructured campaigns to quadruple performance.",
+    description: "Took over a failing Meta Ads account and fully restructured campaigns within 60 days, quadrupling performance from 2x to 8x ROAS.",
   },
   {
     icon: Users,
     title: "B2B Lead Generation",
-    platform: "Meta Ads",
+    tag: "B2B · Meta Ads",
+    heroStat: { label: "Leads", value: "402" },
     stats: [
-      { label: "Leads", value: "402" },
       { label: "CPL", value: "€78" },
       { label: "Channel", value: "B2B" },
     ],
-    description: "High-quality B2B lead generation campaign delivering qualified leads at competitive cost.",
+    description: "Ran a 3-month B2B lead generation campaign on Meta for a high-ticket service, delivering 402 qualified leads at €78 CPL, consistently below the industry benchmark.",
   },
 ];
 
@@ -70,7 +74,7 @@ const CaseStudies = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="bg-card border border-border rounded-xl p-6 md:p-8 card-hover"
+              className="bg-card border border-border rounded-xl p-6 md:p-8 card-hover flex flex-col"
             >
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 rounded-lg bg-primary/15 flex items-center justify-center">
@@ -78,18 +82,36 @@ const CaseStudies = () => {
                 </div>
                 <div>
                   <h3 className="font-heading font-bold text-lg">{c.title}</h3>
-                  <p className="text-muted-foreground text-xs">{c.platform}</p>
+                  <p className="text-muted-foreground text-xs">{c.tag}</p>
                 </div>
               </div>
               <p className="text-muted-foreground text-sm mb-5">{c.description}</p>
-              <div className="grid grid-cols-3 gap-3">
-                {c.stats.map((s) => (
-                  <div key={s.label} className="bg-secondary/50 rounded-lg p-2.5 text-center overflow-hidden">
-                    <p className="text-foreground font-heading font-bold text-sm sm:text-base lg:text-lg truncate">{s.value}</p>
-                    <p className="text-muted-foreground text-xs truncate">{s.label}</p>
-                  </div>
-                ))}
+
+              {/* Hero metric */}
+              <div className="flex items-end gap-4 mb-3">
+                <div className="bg-primary/10 rounded-xl px-5 py-4 flex-1 text-center">
+                  <p className="text-foreground font-heading font-extrabold text-3xl md:text-4xl gradient-text">{c.heroStat.value}</p>
+                  <p className="text-muted-foreground text-xs mt-1">{c.heroStat.label}</p>
+                </div>
+                <div className="flex flex-col gap-2 flex-1">
+                  {c.stats.map((s) => (
+                    <div key={s.label} className="bg-secondary/50 rounded-lg p-2.5 text-center">
+                      <p className="text-foreground font-heading font-bold text-sm truncate">{s.value}</p>
+                      <p className="text-muted-foreground text-xs truncate">{s.label}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
+
+              {/* Testimonial */}
+              {c.testimonial && (
+                <div className="mt-auto pt-5 border-t border-border">
+                  <p className="text-muted-foreground text-sm italic leading-relaxed">
+                    "{c.testimonial.quote}"
+                  </p>
+                  <p className="text-muted-foreground text-xs mt-2 font-medium">— {c.testimonial.author}</p>
+                </div>
+              )}
             </motion.div>
           ))}
         </div>

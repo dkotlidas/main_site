@@ -30,7 +30,7 @@ const cases = [
   },
   {
     icon: BarChart3,
-    title: "Account Recovery — Retail",
+    title: "Account Recovery, Retail",
     tag: "Retail · Meta Ads",
     heroStat: { label: "After", value: "8x ROAS" },
     stats: [

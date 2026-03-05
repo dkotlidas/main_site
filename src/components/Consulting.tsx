@@ -10,7 +10,7 @@ const offerings = [
   {
     icon: Code,
     title: "GTM & Tracking Training",
-    desc: "If your team is flying blind on data, I run focused training sessions on Google Tag Manager, server-side tracking, Meta CAPI, and attribution — so your team can implement and maintain clean tracking independently.",
+    desc: "If your team is flying blind on data, I run focused training sessions on Google Tag Manager, server-side tracking, Meta CAPI, and attribution, so your team can implement and maintain clean tracking independently.",
   },
   {
     icon: UserCheck,

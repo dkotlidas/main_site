@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Share2, Search, Tags, Target, FileText, Megaphone } from "lucide-react";
 
 const services = [
-  { icon: Share2, title: "Meta & Social Ads", desc: "If your paid social campaigns are spending without consistent returns, I build and manage full-funnel strategies across Meta, TikTok, LinkedIn, and other social platforms — combining precise audience targeting, creative testing, and continuous optimization to turn spend into predictable revenue." },
+  { icon: Share2, title: "Meta & Social Ads", desc: "If your paid social campaigns are spending without consistent returns, I build and manage full-funnel strategies across Meta, TikTok, LinkedIn, and other social platforms, combining precise audience targeting, creative testing, and continuous optimization to turn spend into predictable revenue." },
   { icon: Search, title: "Google Ads", desc: "If you're paying for clicks that don't convert, I restructure and manage Google Ads campaigns with a focus on intent, bidding strategy, and continuous optimization that drives qualified traffic." },
   { icon: Tags, title: "Tag Manager Setup", desc: "If you're making decisions with incomplete or unreliable data, I implement clean GTM setups, tags, triggers, and variables, so your tracking actually reflects what's happening on your site." },
   { icon: Target, title: "Tracking & Attribution", desc: "If you don't know which campaigns are actually driving results, I set up server-side tracking, Meta CAPI, and enhanced conversions so your attribution is accurate and your decisions are data-driven." },

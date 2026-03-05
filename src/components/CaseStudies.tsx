@@ -1,4 +1,5 @@
 import { TrendingUp, ShoppingBag, BarChart3, Users } from "lucide-react";
+import { useScrollFade } from "@/hooks/useScrollFade";
 
 const cases = [
   {
@@ -52,9 +53,11 @@ const cases = [
 ];
 
 const CaseStudies = () => {
+  const ref = useScrollFade();
+
   return (
     <section id="case-studies" className="section-padding">
-      <div className="container mx-auto max-w-6xl">
+      <div ref={ref} className="container mx-auto max-w-6xl scroll-fade">
         <div className="mb-14 text-center">
           <p className="text-primary font-heading font-semibold tracking-widest uppercase text-sm mb-3">Results</p>
           <h2 className="text-4xl md:text-5xl font-heading font-extrabold">Case Studies</h2>

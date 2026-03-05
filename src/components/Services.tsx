@@ -1,4 +1,5 @@
 import { Share2, Search, Tags, Target, FileText, Megaphone } from "lucide-react";
+import { useScrollFade } from "@/hooks/useScrollFade";
 
 const services = [
   { icon: Share2, title: "Meta & Social Ads", desc: "If your paid social campaigns are spending without consistent returns, I build and manage full-funnel strategies across Meta, TikTok, LinkedIn, and other social platforms, combining precise audience targeting, creative testing, and continuous optimization to turn spend into predictable revenue." },
@@ -10,9 +11,11 @@ const services = [
 ];
 
 const Services = () => {
+  const ref = useScrollFade();
+
   return (
     <section id="services" className="py-12 md:py-20 px-4 bg-card/30">
-      <div className="container mx-auto max-w-6xl">
+      <div ref={ref} className="container mx-auto max-w-6xl scroll-fade">
         <div className="mb-14 text-center">
           <p className="text-primary font-heading font-semibold tracking-widest uppercase text-sm mb-3">What I Do</p>
           <h2 className="text-4xl md:text-5xl font-heading font-extrabold">Services</h2>

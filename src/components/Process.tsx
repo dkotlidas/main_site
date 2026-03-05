@@ -1,3 +1,5 @@
+import { useScrollFade } from "@/hooks/useScrollFade";
+
 const steps = [
   {
     num: "01",
@@ -22,9 +24,11 @@ const steps = [
 ];
 
 const Process = () => {
+  const ref = useScrollFade();
+
   return (
     <section className="py-12 md:py-20 px-4 bg-card/30">
-      <div className="container mx-auto max-w-6xl">
+      <div ref={ref} className="container mx-auto max-w-6xl scroll-fade">
         <div className="mb-14 text-center">
           <p className="text-primary font-heading font-semibold tracking-widest uppercase text-sm mb-3">How It Works</p>
           <h2 className="text-4xl md:text-5xl font-heading font-extrabold">From First Call to Full Execution</h2>

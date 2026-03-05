@@ -15,17 +15,17 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
           >
-            <p className="text-primary font-heading font-semibold tracking-widest uppercase text-sm mb-4">
+            <p className="text-primary font-heading font-semibold tracking-widest uppercase text-sm mb-4 text-center lg:text-left">
               Paid Social & Google Ads Expert
             </p>
-            <h1 className="text-5xl md:text-7xl font-heading font-extrabold leading-[1.05] mb-6">
+            <h1 className="text-5xl md:text-7xl font-heading font-extrabold leading-[1.05] mb-6 text-center lg:text-left">
               Dimitrios<br />
               <span className="gradient-text">Kotlidas</span>
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8 max-w-lg">
+            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8 max-w-lg text-center lg:text-left mx-auto lg:mx-0">
               I help brands turn ad spend into predictable, scalable growth across Meta and Google.
             </p>
-            <div className="flex flex-wrap gap-4 mb-8">
+            <div className="flex flex-wrap gap-4 mb-8 justify-center lg:justify-start">
               <a
                 href="#case-studies"
                 className="inline-flex items-center px-7 py-3.5 rounded-lg font-heading font-semibold text-sm tracking-wide bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
@@ -39,7 +39,7 @@ const Hero = () => {
                 Contact Me
               </a>
             </div>
-            <div className="flex items-center gap-2 text-muted-foreground text-sm">
+            <div className="flex items-center gap-2 text-muted-foreground text-sm justify-center lg:justify-start">
               <MapPin className="w-4 h-4 text-primary" />
               Based in Strasbourg, France — Available Remote
             </div>

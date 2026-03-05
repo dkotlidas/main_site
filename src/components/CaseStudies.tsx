@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { TrendingUp, ShoppingBag, BarChart3, Users } from "lucide-react";
 
 const cases = [
@@ -56,24 +55,15 @@ const CaseStudies = () => {
   return (
     <section id="case-studies" className="section-padding">
       <div className="container mx-auto max-w-6xl">
-        <motion.div
-          initial={{ opacity: 0, y: 8 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          className="mb-14 text-center"
-        >
+        <div className="mb-14 text-center">
           <p className="text-primary font-heading font-semibold tracking-widest uppercase text-sm mb-3">Results</p>
           <h2 className="text-4xl md:text-5xl font-heading font-extrabold">Case Studies</h2>
-        </motion.div>
+        </div>
 
         <div className="grid md:grid-cols-2 gap-6">
-          {cases.map((c, i) => (
-            <motion.div
+          {cases.map((c) => (
+            <div
               key={c.title}
-              initial={{ opacity: 0, y: 8 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ delay: i * 0.06 }}
               className="bg-card border border-border rounded-xl p-6 md:p-8 card-hover flex flex-col"
             >
               <div className="flex items-center gap-3 mb-4">
@@ -87,7 +77,6 @@ const CaseStudies = () => {
               </div>
               <p className="text-muted-foreground text-sm mb-5">{c.description}</p>
 
-              {/* Hero metric */}
               <div className="flex items-end gap-4 mb-3">
                 <div className="bg-primary/10 rounded-xl px-5 py-4 flex-1 text-center">
                   <p className="text-foreground font-heading font-extrabold text-3xl md:text-4xl gradient-text">{c.heroStat.value}</p>
@@ -103,7 +92,6 @@ const CaseStudies = () => {
                 </div>
               </div>
 
-              {/* Testimonial */}
               {c.testimonial && (
                 <div className="mt-auto pt-5 border-t border-border">
                   <p className="text-muted-foreground text-sm italic leading-relaxed">
@@ -112,17 +100,11 @@ const CaseStudies = () => {
                   <p className="text-muted-foreground text-xs mt-2 font-medium">— {c.testimonial.author}</p>
                 </div>
               )}
-            </motion.div>
+            </div>
           ))}
         </div>
 
-        {/* CTA Block */}
-        <motion.div
-          initial={{ opacity: 0, y: 8 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          className="mt-14 bg-card border border-border rounded-2xl p-10 md:p-14 text-center"
-        >
+        <div className="mt-14 bg-card border border-border rounded-2xl p-10 md:p-14 text-center">
           <h3 className="text-2xl md:text-3xl font-heading font-extrabold mb-3">Want results like these?</h3>
           <p className="text-muted-foreground text-lg mb-6">Let's talk about your brand and what's possible.</p>
           <a
@@ -131,7 +113,7 @@ const CaseStudies = () => {
           >
             Book a Free Strategy Call
           </a>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

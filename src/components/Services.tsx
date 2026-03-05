@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { Share2, Search, Tags, Target, FileText, Megaphone } from "lucide-react";
 
 const services = [
@@ -14,24 +13,15 @@ const Services = () => {
   return (
     <section id="services" className="py-12 md:py-20 px-4 bg-card/30">
       <div className="container mx-auto max-w-6xl">
-        <motion.div
-          initial={{ opacity: 0, y: 8 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          className="mb-14 text-center"
-        >
+        <div className="mb-14 text-center">
           <p className="text-primary font-heading font-semibold tracking-widest uppercase text-sm mb-3">What I Do</p>
           <h2 className="text-4xl md:text-5xl font-heading font-extrabold">Services</h2>
-        </motion.div>
+        </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {services.map((s, i) => (
-            <motion.div
+          {services.map((s) => (
+            <div
               key={s.title}
-              initial={{ opacity: 0, y: 8 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ delay: i * 0.05 }}
               className="bg-card border border-border rounded-xl p-6 card-hover group"
             >
               <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
@@ -39,7 +29,7 @@ const Services = () => {
               </div>
               <h3 className="font-heading font-bold text-lg mb-2">{s.title}</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">{s.desc}</p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

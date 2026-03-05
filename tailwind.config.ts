@@ -14,16 +14,16 @@ export default {
   	},
   	extend: {
   		fontFamily: {
-			heading: [
-				'Raleway',
+		heading: [
+				'Montserrat',
 				'sans-serif'
 			],
   			body: [
-  				'DM Sans',
+  				'Open Sans',
   				'sans-serif'
   			],
   			sans: [
-  				'Inter',
+  				'Open Sans',
   				'ui-sans-serif',
   				'system-ui',
   				'-apple-system',

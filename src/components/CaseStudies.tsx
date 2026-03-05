@@ -57,9 +57,9 @@ const CaseStudies = () => {
     <section id="case-studies" className="section-padding">
       <div className="container mx-auto max-w-6xl">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-50px" }}
           className="mb-14 text-center"
         >
           <p className="text-primary font-heading font-semibold tracking-widest uppercase text-sm mb-3">Results</p>
@@ -70,10 +70,10 @@ const CaseStudies = () => {
           {cases.map((c, i) => (
             <motion.div
               key={c.title}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 8 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ delay: i * 0.06 }}
               className="bg-card border border-border rounded-xl p-6 md:p-8 card-hover flex flex-col"
             >
               <div className="flex items-center gap-3 mb-4">
@@ -118,9 +118,9 @@ const CaseStudies = () => {
 
         {/* CTA Block */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-50px" }}
           className="mt-14 bg-card border border-border rounded-2xl p-10 md:p-14 text-center"
         >
           <h3 className="text-2xl md:text-3xl font-heading font-extrabold mb-3">Want results like these?</h3>

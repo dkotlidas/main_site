@@ -28,9 +28,9 @@ const Process = () => {
     <section className="py-12 md:py-20 px-4 bg-card/30">
       <div className="container mx-auto max-w-6xl">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-50px" }}
           className="mb-14 text-center"
         >
           <p className="text-primary font-heading font-semibold tracking-widest uppercase text-sm mb-3">How It Works</p>
@@ -41,10 +41,10 @@ const Process = () => {
           {steps.map((s, i) => (
             <motion.div
               key={s.num}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 8 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ delay: i * 0.06 }}
               className="bg-card border border-border rounded-xl p-6 text-center card-hover"
             >
               <p className="text-3xl font-heading font-extrabold gradient-text mb-3">{s.num}</p>

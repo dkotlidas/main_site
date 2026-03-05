@@ -31,7 +31,7 @@ const About = () => {
             <h2 className="text-4xl md:text-5xl font-heading font-extrabold mb-6 text-center lg:text-left">Who I Am</h2>
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
-                If you're spending on Meta or Google Ads and not seeing predictable returns, you're not alone — and it's usually not the budget that's the problem.
+                If you're spending on Meta or Google Ads and not seeing predictable returns, you're not alone, and it's usually not the budget that's the problem.
               </p>
               <p>
                 I work with e-commerce brands and lead gen businesses to <span className="text-foreground font-medium">fix what's broken and scale what's working</span>.
@@ -40,7 +40,7 @@ const About = () => {
                 With <span className="text-foreground font-medium">5+ years</span> as a freelance performance marketer, I've managed campaigns across Meta and Google for clients throughout Europe.
               </p>
               <p>
-                I'm the co-founder of a DTC brand — so I know the pressure of making every ad euro count.
+                I'm the co-founder of a DTC brand, so I know the pressure of making every ad euro count.
               </p>
               <p>
                 I also serve as a <span className="text-foreground font-medium">GTM Instructor at Knowcrunch</span>, one of Greece's leading digital marketing academies.

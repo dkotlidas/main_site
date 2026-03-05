@@ -16,7 +16,7 @@ const Hero = () => {
             className="flex flex-col items-center lg:items-start"
           >
             <p className="text-primary font-heading font-semibold tracking-widest uppercase text-sm mb-4 text-center lg:text-left">
-              Performance Marketing Specialist — Meta & Google Ads
+              Performance Marketing Specialist, Meta & Google Ads
             </p>
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-heading font-extrabold leading-[1.05] mb-6 text-center lg:text-left">
               Dimitrios<br />

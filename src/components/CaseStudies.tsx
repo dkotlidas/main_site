@@ -82,11 +82,11 @@ const CaseStudies = () => {
                 </div>
               </div>
               <p className="text-muted-foreground text-sm mb-5">{c.description}</p>
-              <div className="grid grid-cols-3 gap-4">
+              <div className="grid grid-cols-3 gap-3">
                 {c.stats.map((s) => (
-                  <div key={s.label} className="bg-secondary/50 rounded-lg p-3 text-center">
-                    <p className="text-foreground font-heading font-bold text-lg">{s.value}</p>
-                    <p className="text-muted-foreground text-xs">{s.label}</p>
+                  <div key={s.label} className="bg-secondary/50 rounded-lg p-2.5 text-center overflow-hidden">
+                    <p className="text-foreground font-heading font-bold text-sm sm:text-base lg:text-lg truncate">{s.value}</p>
+                    <p className="text-muted-foreground text-xs truncate">{s.label}</p>
                   </div>
                 ))}
               </div>

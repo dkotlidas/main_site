@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { MapPin } from "lucide-react";
 import portrait from "@/assets/dimitris-portrait.jpg";
 
 const Hero = () => {
@@ -16,11 +15,8 @@ const Hero = () => {
             transition={{ duration: 0.7, ease: "easeOut" }}
             className="flex flex-col items-center lg:items-start"
           >
-            <p className="text-primary font-heading font-semibold tracking-widest uppercase text-sm mb-1 text-center lg:text-left">
-              Performance Marketing Manager
-            </p>
-            <p className="text-primary/70 font-heading font-medium tracking-widest uppercase text-xs mb-4 text-center lg:text-left">
-              Paid Social & Google Ads Expert
+            <p className="text-primary font-heading font-semibold tracking-widest uppercase text-sm mb-4 text-center lg:text-left">
+              Performance Marketing Specialist — Meta & Google Ads
             </p>
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-heading font-extrabold leading-[1.05] mb-6 text-center lg:text-left">
               Dimitrios<br />
@@ -29,12 +25,12 @@ const Hero = () => {
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8 max-w-lg text-center lg:text-left mx-auto lg:mx-0">
               I help brands turn ad spend into predictable, scalable growth across Meta and Google.
             </p>
-            <div className="flex flex-wrap gap-4 mb-8 justify-center lg:justify-start">
+            <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
               <a
                 href="#case-studies"
                 className="inline-flex items-center px-7 py-3.5 rounded-lg font-heading font-semibold text-sm tracking-wide bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
               >
-                See My Results
+                See How I Can Help You
               </a>
               <a
                 href="#contact"
@@ -42,10 +38,6 @@ const Hero = () => {
               >
                 Contact Me
               </a>
-            </div>
-            <div className="flex items-center gap-2 text-muted-foreground text-sm justify-center lg:justify-start">
-              <MapPin className="w-4 h-4 text-primary" />
-              Based in Strasbourg, France — Available Remote
             </div>
           </motion.div>
 
@@ -60,7 +52,7 @@ const Hero = () => {
               <img
                 src={portrait}
                 alt="Dimitrios Kotlidas"
-                className="relative rounded-2xl w-72 md:w-80 lg:w-96 object-cover glow-border"
+                className="relative rounded-2xl w-72 md:w-80 lg:w-96 object-contain max-h-[500px]"
               />
             </div>
           </motion.div>

@@ -1,16 +1,14 @@
 import { motion } from "framer-motion";
-import { Facebook, Search, BarChart2, FlaskConical, FileText, Target, Tags, Share2, Megaphone } from "lucide-react";
+import { Facebook, Search, Tags, Target, FileText, Megaphone, Share2 } from "lucide-react";
 
 const services = [
-  { icon: Facebook, title: "Meta Ads", desc: "Full-funnel Facebook & Instagram ad campaigns optimized for conversions." },
-  { icon: Search, title: "Google Ads", desc: "Search, Shopping & Performance Max campaigns driving qualified traffic." },
-  { icon: Share2, title: "Social Ads", desc: "Paid campaigns across TikTok, LinkedIn, and other social platforms to expand your reach." },
-  { icon: Tags, title: "Tag Manager Setup", desc: "Full GTM implementation including triggers, tags, data layers, and container configuration." },
-  { icon: Target, title: "Tracking & Attribution", desc: "Server-side tracking, GA4, and conversion API implementation." },
-  { icon: FlaskConical, title: "A/B Testing", desc: "Systematic creative and audience testing to maximize ad performance." },
-  { icon: BarChart2, title: "Reporting", desc: "Custom dashboards and data-driven reporting for actionable insights." },
-  { icon: FileText, title: "Strategy", desc: "Full paid media strategy aligned with your business goals and KPIs." },
-  { icon: Megaphone, title: "Creative Direction", desc: "Ad creative guidance and copy frameworks that drive clicks and conversions." },
+  { icon: Facebook, title: "Meta Ads", desc: "If your Meta campaigns are burning budget without consistent returns, I build and manage full-funnel Meta Ads systems — from audience strategy to creative testing — that turn spend into predictable revenue." },
+  { icon: Search, title: "Google Ads", desc: "If you're paying for clicks that don't convert, I restructure and manage Google Ads campaigns with a focus on intent, bidding strategy, and continuous optimization that drives qualified traffic." },
+  { icon: Share2, title: "Social Ads", desc: "If you want to expand beyond Meta, I manage paid campaigns across TikTok, LinkedIn, and other social platforms — adapting creative and targeting to each platform's unique audience behavior." },
+  { icon: Tags, title: "Tag Manager Setup", desc: "If you're making decisions with incomplete or unreliable data, I implement clean GTM setups — tags, triggers, and variables — so your tracking actually reflects what's happening on your site." },
+  { icon: Target, title: "Tracking & Attribution", desc: "If you don't know which campaigns are actually driving results, I set up server-side tracking, Meta CAPI, and enhanced conversions so your attribution is accurate and your decisions are data-driven." },
+  { icon: FileText, title: "Strategy", desc: "If you're spending without a clear plan, I build a paid media strategy aligned with your business goals — channel mix, budget allocation, funnel structure, and KPIs that make sense for your market." },
+  { icon: Megaphone, title: "Creative Direction", desc: "If your ads look like everyone else's, I provide creative direction and performance-focused frameworks that make your visuals and copy stop the scroll and drive action." },
 ];
 
 const Services = () => {

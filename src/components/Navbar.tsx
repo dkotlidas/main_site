@@ -23,6 +23,12 @@ const Navbar = () => {
               {l.label}
             </a>
           ))}
+          <a
+            href="#contact"
+            className="inline-flex items-center px-5 py-2 rounded-lg font-heading font-semibold text-sm bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+          >
+            Work With Me
+          </a>
         </div>
         <button className="md:hidden text-foreground" onClick={() => setOpen(!open)}>
           {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -35,6 +41,13 @@ const Navbar = () => {
               {l.label}
             </a>
           ))}
+          <a
+            href="#contact"
+            onClick={() => setOpen(false)}
+            className="block text-center px-5 py-2 rounded-lg font-heading font-semibold text-sm bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+          >
+            Work With Me
+          </a>
         </div>
       )}
     </nav>

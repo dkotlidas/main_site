@@ -16,7 +16,10 @@ const Hero = () => {
             transition={{ duration: 0.7, ease: "easeOut" }}
             className="flex flex-col items-center lg:items-start"
           >
-            <p className="text-primary font-heading font-semibold tracking-widest uppercase text-sm mb-4 text-center lg:text-left">
+            <p className="text-primary font-heading font-semibold tracking-widest uppercase text-sm mb-1 text-center lg:text-left">
+              Performance Marketing Manager
+            </p>
+            <p className="text-primary/70 font-heading font-medium tracking-widest uppercase text-xs mb-4 text-center lg:text-left">
               Paid Social & Google Ads Expert
             </p>
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-heading font-extrabold leading-[1.05] mb-6 text-center lg:text-left">

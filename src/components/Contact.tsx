@@ -3,13 +3,24 @@ import { Linkedin, Send } from "lucide-react";
 import { useState } from "react";
 
 const Contact = () => {
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", service: "", message: "" });
+
+  const services = [
+    "Meta Ads",
+    "Google Ads",
+    "Social Ads",
+    "Tag Manager Setup",
+    "Tracking & Attribution",
+    "A/B Testing",
+    "Reporting",
+    "Strategy",
+    "Creative Direction",
+  ];
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // placeholder
     alert("Thanks for reaching out! I'll get back to you soon.");
-    setForm({ name: "", email: "", message: "" });
+    setForm({ name: "", email: "", service: "", message: "" });
   };
 
   return (
@@ -40,6 +51,17 @@ const Contact = () => {
             onChange={(e) => setForm({ ...form, name: e.target.value })}
             className="w-full bg-card border border-border rounded-xl px-5 py-3.5 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-shadow font-body"
           />
+          <select
+            required
+            value={form.service}
+            onChange={(e) => setForm({ ...form, service: e.target.value })}
+            className="w-full bg-card border border-border rounded-xl px-5 py-3.5 text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-shadow font-body appearance-none"
+          >
+            <option value="" disabled className="text-muted-foreground">Select a Service</option>
+            {services.map((s) => (
+              <option key={s} value={s}>{s}</option>
+            ))}
+          </select>
           <input
             type="email"
             placeholder="Your Email"

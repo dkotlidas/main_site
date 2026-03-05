@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Linkedin, Send } from "lucide-react";
+import { Send } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -13,8 +13,6 @@ const Contact = () => {
     "Social Ads",
     "Tag Manager Setup",
     "Tracking & Attribution",
-    "A/B Testing",
-    "Reporting",
     "Strategy",
     "Creative Direction",
   ];
@@ -112,20 +110,10 @@ const Contact = () => {
             disabled={!gdprConsent}
             className="w-full inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-heading font-semibold text-sm tracking-wide bg-primary text-primary-foreground hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            <Send className="w-4 h-4" /> Send Message
+            <Send className="w-4 h-4" /> Book a Free Strategy Call
           </button>
+          <p className="text-center text-muted-foreground text-sm">I'll get back to you within 24 hours.</p>
         </motion.form>
-
-        <div className="mt-8 text-center">
-          <a
-            href="https://www.linkedin.com/in/dimitriskotlidas/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm"
-          >
-            <Linkedin className="w-5 h-5" /> Connect on LinkedIn
-          </a>
-        </div>
       </div>
     </section>
   );

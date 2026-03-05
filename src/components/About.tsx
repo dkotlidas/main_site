@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { MapPin, Globe, GraduationCap } from "lucide-react";
+import { Globe, GraduationCap } from "lucide-react";
 import portrait from "@/assets/dimitris-portrait.jpg";
 
 const About = () => {
@@ -31,24 +31,27 @@ const About = () => {
             <h2 className="text-4xl md:text-5xl font-heading font-extrabold mb-6 text-center lg:text-left">Who I Am</h2>
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
-                With <span className="text-foreground font-medium">5+ years</span> as a freelance performance marketer, I specialize in scaling paid campaigns across Meta and Google platforms for e-commerce and lead gen businesses.
+                If you're spending on Meta or Google Ads and not seeing predictable returns, you're not alone — and it's usually not the budget that's the problem.
               </p>
               <p>
-                I'm the co-founder of a DTC brand — so I understand the pressure of making every ad euro count. I also serve as a <span className="text-foreground font-medium">GTM Instructor at Knowcrunch</span>, one of Greece's leading digital marketing academies.
+                I work with e-commerce brands and lead gen businesses to <span className="text-foreground font-medium">fix what's broken and scale what's working</span>.
               </p>
               <p>
-                I work with international clients across Europe and beyond, delivering data-driven strategies that consistently outperform benchmarks.
+                With <span className="text-foreground font-medium">5+ years</span> as a freelance performance marketer, I've managed campaigns across Meta and Google for clients throughout Europe.
+              </p>
+              <p>
+                I'm the co-founder of a DTC brand — so I know the pressure of making every ad euro count.
+              </p>
+              <p>
+                I also serve as a <span className="text-foreground font-medium">GTM Instructor at Knowcrunch</span>, one of Greece's leading digital marketing academies.
               </p>
             </div>
             <div className="flex flex-wrap gap-4 mt-8">
-              <div className="flex items-center gap-2 text-sm text-muted-foreground bg-secondary rounded-lg px-4 py-2">
-                <MapPin className="w-4 h-4 text-primary" /> Strasbourg, France
-              </div>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground bg-secondary rounded-lg px-4 py-2">
-                <Globe className="w-4 h-4 text-primary" /> Remote Worldwide
-              </div>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground bg-secondary rounded-lg px-4 py-2">
-                <GraduationCap className="w-4 h-4 text-primary" /> GTM Instructor
+              <a href="#contact" className="flex items-center gap-2 text-sm font-medium bg-primary text-primary-foreground rounded-lg px-5 py-2.5 hover:bg-primary/90 transition-colors">
+                <Globe className="w-4 h-4" /> Available Worldwide
+              </a>
+              <div className="flex items-center gap-2 text-sm font-medium bg-primary text-primary-foreground rounded-lg px-5 py-2.5">
+                <GraduationCap className="w-4 h-4" /> GTM Instructor
               </div>
             </div>
           </motion.div>

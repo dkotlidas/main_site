@@ -93,6 +93,23 @@ const CaseStudies = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* CTA Block */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-14 bg-card border border-border rounded-2xl p-10 md:p-14 text-center"
+        >
+          <h3 className="text-2xl md:text-3xl font-heading font-extrabold mb-3">Want results like these?</h3>
+          <p className="text-muted-foreground text-lg mb-6">Let's talk about your brand and what's possible.</p>
+          <a
+            href="#contact"
+            className="inline-flex items-center px-8 py-4 rounded-xl font-heading font-semibold text-sm tracking-wide bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+          >
+            Book a Free Strategy Call
+          </a>
+        </motion.div>
       </div>
     </section>
   );

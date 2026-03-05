@@ -14,10 +14,10 @@ export default {
   	},
   	extend: {
   		fontFamily: {
-  			heading: [
-  				'Syne',
-  				'sans-serif'
-  			],
+			heading: [
+				'Raleway',
+				'sans-serif'
+			],
   			body: [
   				'DM Sans',
   				'sans-serif'

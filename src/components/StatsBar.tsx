@@ -1,9 +1,9 @@
 import { useCountUp } from "@/hooks/useCountUp";
 
 const stats = [
-  { value: 500, prefix: "€", suffix: "K+", label: "Ad Spend Managed" },
-  { value: 15, prefix: "", suffix: "+", label: "Clients" },
-  { value: 11.93, prefix: "", suffix: "x", label: "Best ROAS", decimal: true },
+  { value: 1, prefix: "€", suffix: "M+", label: "Ad Spend Managed Annually" },
+  { value: 20, prefix: "", suffix: "+", label: "Accounts Managed" },
+  { value: 10, prefix: "", suffix: "x+", label: "Best ROAS" },
   { value: 5, prefix: "", suffix: "+", label: "Years Experience" },
 ];
 

@@ -31,7 +31,7 @@ const faqs = [
 
 const FAQ = () => {
   return (
-    <section className="py-10 md:py-28 px-4">
+    <section className="py-12 md:py-20 px-4">
       <div className="container mx-auto max-w-3xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

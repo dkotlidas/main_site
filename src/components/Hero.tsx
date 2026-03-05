@@ -10,9 +10,9 @@ const Hero = () => {
       <div className="container mx-auto max-w-6xl">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <motion.div
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
             className="flex flex-col items-center lg:items-start"
           >
             <p className="text-primary font-heading font-semibold tracking-widest uppercase text-sm mb-4 text-center lg:text-left">
@@ -42,9 +42,9 @@ const Hero = () => {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, scale: 0.97 }}
+            initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.15 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
             className="flex justify-center lg:justify-end"
           >
             <div className="relative">

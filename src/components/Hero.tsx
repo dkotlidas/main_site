@@ -14,6 +14,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
+            className="flex flex-col items-center lg:items-start"
           >
             <p className="text-primary font-heading font-semibold tracking-widest uppercase text-sm mb-4 text-center lg:text-left">
               Paid Social & Google Ads Expert

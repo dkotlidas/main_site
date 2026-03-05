@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { CheckCircle, XCircle } from "lucide-react";
 
 const goodFit = [
@@ -18,23 +17,13 @@ const FitSection = () => {
   return (
     <section className="py-12 md:py-20 px-4">
       <div className="container mx-auto max-w-6xl">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mb-14 text-center"
-        >
+        <div className="mb-14 text-center">
           <p className="text-primary font-heading font-semibold tracking-widest uppercase text-sm mb-3">Who I Work With</p>
           <h2 className="text-4xl md:text-5xl font-heading font-extrabold">Is This a Good Fit?</h2>
-        </motion.div>
+        </div>
 
         <div className="grid md:grid-cols-2 gap-6">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="bg-card border border-border rounded-xl p-6 md:p-8"
-          >
+          <div className="bg-card border border-border rounded-xl p-6 md:p-8">
             <h3 className="font-heading font-bold text-lg mb-5">Good fit ✅</h3>
             <ul className="space-y-3">
               {goodFit.map((item) => (
@@ -44,14 +33,9 @@ const FitSection = () => {
                 </li>
               ))}
             </ul>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="bg-card border border-border rounded-xl p-6 md:p-8"
-          >
+          <div className="bg-card border border-border rounded-xl p-6 md:p-8">
             <h3 className="font-heading font-bold text-lg mb-5">Not the right fit ❌</h3>
             <ul className="space-y-3">
               {notFit.map((item) => (
@@ -61,7 +45,7 @@ const FitSection = () => {
                 </li>
               ))}
             </ul>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

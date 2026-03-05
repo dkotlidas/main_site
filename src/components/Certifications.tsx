@@ -12,7 +12,7 @@ const certs = [
 
 const Certifications = () => {
   return (
-    <section id="certifications" className="section-padding bg-card/30">
+    <section id="certifications" className="py-10 md:py-28 px-4 bg-card/30">
       <div className="container mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

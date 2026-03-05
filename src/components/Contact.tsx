@@ -19,6 +19,16 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Google Enhanced Conversions data layer push
+    (window as any).dataLayer = (window as any).dataLayer || [];
+    (window as any).dataLayer.push({
+      event: "form_submit",
+      enhanced_conversion_data: {
+        email: form.email,
+      },
+    });
+
     alert("Thanks for reaching out! I'll get back to you soon.");
     setForm({ name: "", email: "", service: "", message: "" });
   };

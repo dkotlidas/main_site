@@ -4,7 +4,7 @@ import { TrendingUp, ShoppingBag, BarChart3, Users } from "lucide-react";
 const cases = [
   {
     icon: ShoppingBag,
-    title: "KIKA Fashion",
+    title: "Fashion E-Commerce",
     platform: "Meta Ads",
     stats: [
       { label: "ROAS", value: "9.71x" },
@@ -15,7 +15,7 @@ const cases = [
   },
   {
     icon: TrendingUp,
-    title: "Kitchenware Brand",
+    title: "Kitchenware E-Commerce",
     platform: "Meta & Google Ads",
     stats: [
       { label: "ROAS", value: "4.35x" },
@@ -26,7 +26,7 @@ const cases = [
   },
   {
     icon: BarChart3,
-    title: "eShop Turnaround",
+    title: "Retail Account Turnaround",
     platform: "Meta Ads",
     stats: [
       { label: "Before", value: "2x ROAS" },
@@ -37,7 +37,7 @@ const cases = [
   },
   {
     icon: Users,
-    title: "Lead Generation",
+    title: "B2B Lead Generation",
     platform: "Meta Ads",
     stats: [
       { label: "Leads", value: "402" },

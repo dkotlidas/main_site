@@ -1,9 +1,11 @@
 import { motion } from "framer-motion";
 import { Linkedin, Send } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", service: "", message: "" });
+  const [gdprConsent, setGdprConsent] = useState(false);
 
   const services = [
     "Meta Ads",
@@ -31,6 +33,7 @@ const Contact = () => {
 
     alert("Thanks for reaching out! I'll get back to you soon.");
     setForm({ name: "", email: "", service: "", message: "" });
+    setGdprConsent(false);
   };
 
   return (
@@ -88,9 +91,26 @@ const Contact = () => {
             onChange={(e) => setForm({ ...form, message: e.target.value })}
             className="w-full bg-card border border-border rounded-xl px-5 py-3.5 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-shadow font-body resize-none"
           />
+          <label className="flex items-start gap-3 cursor-pointer">
+            <input
+              type="checkbox"
+              required
+              checked={gdprConsent}
+              onChange={(e) => setGdprConsent(e.target.checked)}
+              className="mt-1 w-4 h-4 rounded border-border accent-primary"
+            />
+            <span className="text-sm text-muted-foreground leading-relaxed">
+              I agree to the processing of my personal data as described in the{" "}
+              <Link to="/privacy-policy" className="text-primary hover:underline" target="_blank">
+                Privacy Policy
+              </Link>
+              . I can withdraw my consent at any time.
+            </span>
+          </label>
           <button
             type="submit"
-            className="w-full inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-heading font-semibold text-sm tracking-wide bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+            disabled={!gdprConsent}
+            className="w-full inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-heading font-semibold text-sm tracking-wide bg-primary text-primary-foreground hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <Send className="w-4 h-4" /> Send Message
           </button>

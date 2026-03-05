@@ -2,40 +2,68 @@ import { motion } from "framer-motion";
 import { Send } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", service: "", message: "" });
   const [gdprConsent, setGdprConsent] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
 
   const services = [
-    "Meta Ads",
+    "Meta & Social Ads",
     "Google Ads",
-    "Social Ads",
     "Tag Manager Setup",
     "Tracking & Attribution",
     "Strategy",
     "Creative Direction",
+    "Consulting & Training",
   ];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
 
-    // Google Enhanced Conversions data layer push
-    (window as any).dataLayer = (window as any).dataLayer || [];
-    (window as any).dataLayer.push({
-      event: "form_submit",
-      enhanced_conversion_data: {
+    try {
+      const { error } = await supabase.from("leads").insert({
+        name: form.name,
         email: form.email,
-      },
-    });
+        service: form.service,
+        message: form.message,
+      });
 
-    alert("Thanks for reaching out! I'll get back to you soon.");
-    setForm({ name: "", email: "", service: "", message: "" });
-    setGdprConsent(false);
+      if (error) throw error;
+
+      // Google Enhanced Conversions data layer push
+      (window as any).dataLayer = (window as any).dataLayer || [];
+      (window as any).dataLayer.push({
+        event: "form_submit",
+        enhanced_conversion_data: {
+          email: form.email,
+        },
+      });
+
+      toast({
+        title: "Message sent!",
+        description: "Thanks for reaching out. I'll get back to you within 24 hours.",
+      });
+      setForm({ name: "", email: "", service: "", message: "" });
+      setGdprConsent(false);
+    } catch (error) {
+      console.error("Error submitting lead:", error);
+      toast({
+        title: "Something went wrong",
+        description: "Please try again or reach out directly via LinkedIn.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
-    <section id="contact" className="section-padding">
+    <section id="contact" className="py-12 md:py-20 px-4">
       <div className="container mx-auto max-w-2xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -107,10 +135,10 @@ const Contact = () => {
           </label>
           <button
             type="submit"
-            disabled={!gdprConsent}
+            disabled={!gdprConsent || isSubmitting}
             className="w-full inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-heading font-semibold text-sm tracking-wide bg-primary text-primary-foreground hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            <Send className="w-4 h-4" /> Book a Free Strategy Call
+            <Send className="w-4 h-4" /> {isSubmitting ? "Sending..." : "Book a Free Strategy Call"}
           </button>
           <p className="text-center text-muted-foreground text-sm">I'll get back to you within 24 hours.</p>
         </motion.form>

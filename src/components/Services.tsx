@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
-import { Facebook, Search, BarChart2, FlaskConical, FileText, Target } from "lucide-react";
+import { Facebook, Search, BarChart2, FlaskConical, FileText, Target, Tags } from "lucide-react";
 
 const services = [
   { icon: Facebook, title: "Meta Ads", desc: "Full-funnel Facebook & Instagram ad campaigns optimized for conversions." },
   { icon: Search, title: "Google Ads", desc: "Search, Shopping & Performance Max campaigns driving qualified traffic." },
-  { icon: Target, title: "Tracking & Attribution", desc: "Server-side tracking, GA4, GTM, and conversion API implementation." },
+  { icon: Tags, title: "Tag Manager Setup", desc: "Full GTM implementation including triggers, tags, data layers, and container configuration." },
+  { icon: Target, title: "Tracking & Attribution", desc: "Server-side tracking, GA4, and conversion API implementation." },
   { icon: FlaskConical, title: "A/B Testing", desc: "Systematic creative and audience testing to maximize ad performance." },
   { icon: BarChart2, title: "Reporting", desc: "Custom dashboards and data-driven reporting for actionable insights." },
   { icon: FileText, title: "Strategy", desc: "Full paid media strategy aligned with your business goals and KPIs." },

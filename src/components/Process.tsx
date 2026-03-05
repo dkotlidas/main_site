@@ -1,5 +1,3 @@
-import { motion } from "framer-motion";
-
 const steps = [
   {
     num: "01",
@@ -27,30 +25,21 @@ const Process = () => {
   return (
     <section className="py-12 md:py-20 px-4 bg-card/30">
       <div className="container mx-auto max-w-6xl">
-        <motion.div
-          initial={{ opacity: 0, y: 8 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          className="mb-14 text-center"
-        >
+        <div className="mb-14 text-center">
           <p className="text-primary font-heading font-semibold tracking-widest uppercase text-sm mb-3">How It Works</p>
           <h2 className="text-4xl md:text-5xl font-heading font-extrabold">From First Call to Full Execution</h2>
-        </motion.div>
+        </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {steps.map((s, i) => (
-            <motion.div
+          {steps.map((s) => (
+            <div
               key={s.num}
-              initial={{ opacity: 0, y: 8 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ delay: i * 0.06 }}
               className="bg-card border border-border rounded-xl p-6 text-center card-hover"
             >
               <p className="text-3xl font-heading font-extrabold gradient-text mb-3">{s.num}</p>
               <h3 className="font-heading font-bold text-lg mb-2">{s.title}</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">{s.desc}</p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

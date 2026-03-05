@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 import { Linkedin, Instagram, Facebook } from "lucide-react";
 
 const socials = [
-  { icon: Linkedin, href: "https://www.linkedin.com/in/dimitriskotlidas/", label: "LinkedIn" },
-  { icon: Instagram, href: "https://www.instagram.com/dimitriskotlidas/", label: "Instagram" },
-  { icon: Facebook, href: "https://www.facebook.com/dimitriskotlidas", label: "Facebook" },
+  { icon: Linkedin, href: "https://www.linkedin.com/in/dimitrioskotlidas/", label: "LinkedIn" },
+  { icon: Instagram, href: "https://www.instagram.com/kotlid/", label: "Instagram" },
+  { icon: Facebook, href: "https://www.facebook.com/dimitrios.kotlidas/", label: "Facebook" },
 ];
 
 const Footer = () => (

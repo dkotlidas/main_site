@@ -18,7 +18,7 @@ const Certifications = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-14"
+          className="mb-14 text-center"
         >
           <p className="text-primary font-heading font-semibold tracking-widest uppercase text-sm mb-3">Credentials</p>
           <h2 className="text-4xl md:text-5xl font-heading font-extrabold">Certifications</h2>

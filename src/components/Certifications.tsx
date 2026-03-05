@@ -24,7 +24,7 @@ const Certifications = () => {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold">Certifications</h2>
         </motion.div>
 
-        <div className="flex flex-wrap gap-4">
+        <div className="flex flex-wrap justify-center gap-4">
           {certs.map((cert, i) => (
             <motion.div
               key={cert}

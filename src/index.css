@@ -6,48 +6,48 @@
 
 @layer base {
   :root {
-    --background: 0 0% 5.1%;
-    --foreground: 0 0% 95%;
+    --background: 37 33% 95%;
+    --foreground: 0 0% 10%;
 
-    --card: 0 0% 8%;
-    --card-foreground: 0 0% 95%;
+    --card: 37 33% 97%;
+    --card-foreground: 0 0% 10%;
 
-    --popover: 0 0% 8%;
-    --popover-foreground: 0 0% 95%;
+    --popover: 37 33% 97%;
+    --popover-foreground: 0 0% 10%;
 
-    --primary: 268 100% 30%;
+    --primary: 220 82% 47%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 12%;
-    --secondary-foreground: 0 0% 95%;
+    --secondary: 37 20% 90%;
+    --secondary-foreground: 0 0% 10%;
 
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 64%;
+    --muted: 37 20% 88%;
+    --muted-foreground: 0 0% 29%;
 
-    --accent: 268 100% 30%;
+    --accent: 220 82% 47%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 16%;
-    --input: 0 0% 16%;
-    --ring: 268 100% 30%;
+    --border: 37 15% 85%;
+    --input: 37 15% 85%;
+    --ring: 220 82% 47%;
 
     --radius: 0.75rem;
 
-    --sidebar-background: 0 0% 7%;
-    --sidebar-foreground: 0 0% 95%;
-    --sidebar-primary: 268 100% 30%;
+    --sidebar-background: 37 33% 93%;
+    --sidebar-foreground: 0 0% 10%;
+    --sidebar-primary: 220 82% 47%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 0 0% 12%;
-    --sidebar-accent-foreground: 0 0% 95%;
-    --sidebar-border: 0 0% 16%;
-    --sidebar-ring: 268 100% 30%;
+    --sidebar-accent: 37 20% 90%;
+    --sidebar-accent-foreground: 0 0% 10%;
+    --sidebar-border: 37 15% 85%;
+    --sidebar-ring: 220 82% 47%;
 
-    --gradient-primary: linear-gradient(135deg, hsl(268, 100%, 30%), hsl(268, 80%, 50%));
-    --gradient-glow: linear-gradient(135deg, hsl(268, 100%, 30%), hsl(290, 80%, 40%));
-    --shadow-glow: 0 0 40px hsl(268 100% 30% / 0.3);
+    --gradient-primary: linear-gradient(135deg, hsl(220, 82%, 47%), hsl(220, 82%, 34%));
+    --gradient-glow: linear-gradient(135deg, hsl(220, 82%, 47%), hsl(230, 80%, 40%));
+    --shadow-glow: 0 0 40px hsl(220 82% 47% / 0.2);
   }
 }
 
@@ -83,7 +83,7 @@
   .card-hover {
     @apply transition-all duration-300 hover:-translate-y-1;
     &:hover {
-      box-shadow: 0 8px 30px hsl(268 100% 30% / 0.2);
+      box-shadow: 0 8px 30px hsl(220 82% 47% / 0.15);
     }
   }
 

@@ -23,7 +23,7 @@ const Hero = () => {
               <span className="gradient-text">Kotlidas</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8 max-w-lg">
-              I scale paid campaigns profitably — <span className="text-foreground font-semibold">€500K+ managed</span>, up to <span className="text-foreground font-semibold">11.93x ROAS</span>.
+              I help brands turn ad spend into predictable, scalable growth — across Meta and Google.
             </p>
             <div className="flex flex-wrap gap-4 mb-8">
               <a

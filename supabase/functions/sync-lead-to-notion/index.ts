@@ -28,7 +28,7 @@ Deno.serve(async (req) => {
     const NOTION_DATABASE_ID = Deno.env.get("NOTION_DATABASE_ID");
     if (!NOTION_DATABASE_ID) throw new Error("NOTION_DATABASE_ID is not configured");
 
-    const { name, email, service, message } = await req.json();
+    const { name, email, service, message, newsletter_consent } = await req.json();
 
     // Input validation
     if (!name || typeof name !== "string" || name.trim().length === 0 || name.length > 200) {
@@ -70,6 +70,7 @@ Deno.serve(async (req) => {
           Email: { email: email.trim() },
           Service: { select: { name: service } },
           Message: { rich_text: [{ text: { content: (message || "").trim() } }] },
+          Newsletter: { checkbox: !!newsletter_consent },
           Status: { status: { name: "Not started" } },
         },
       }),

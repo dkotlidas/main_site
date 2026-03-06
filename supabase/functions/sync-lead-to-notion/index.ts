@@ -49,7 +49,7 @@ Deno.serve(async (req) => {
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
     }
-    if (!message || typeof message !== "string" || message.trim().length === 0 || message.length > 5000) {
+    if (message && (typeof message !== "string" || message.length > 5000)) {
       return new Response(JSON.stringify({ success: false, error: "Invalid message" }), {
         status: 400,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
@@ -69,7 +69,7 @@ Deno.serve(async (req) => {
           Name: { title: [{ text: { content: name.trim() } }] },
           Email: { email: email.trim() },
           Service: { select: { name: service } },
-          Message: { rich_text: [{ text: { content: message.trim() } }] },
+          Message: { rich_text: [{ text: { content: (message || "").trim() } }] },
           Status: { status: { name: "Not started" } },
         },
       }),

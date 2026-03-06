@@ -32,9 +32,9 @@ Deno.serve(async (req) => {
         properties: {
           Name: { title: [{ text: { content: name } }] },
           Email: { email: email },
-          Service: { select: { name: service } },
+          Service: { rich_text: [{ text: { content: service } }] },
           Message: { rich_text: [{ text: { content: message } }] },
-          Status: { select: { name: "New" } },
+          Status: { status: { name: "Not started" } },
         },
       }),
     });

@@ -8,6 +8,7 @@ import { useScrollFade } from "@/hooks/useScrollFade";
 const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", service: "", message: "" });
   const [gdprConsent, setGdprConsent] = useState(false);
+  const [newsletterConsent, setNewsletterConsent] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
   const ref = useScrollFade();
@@ -32,6 +33,7 @@ const Contact = () => {
         email: form.email,
         service: form.service,
         message: form.message,
+        newsletter_consent: newsletterConsent,
       });
 
       if (error) throw error;
@@ -55,6 +57,7 @@ const Contact = () => {
       });
       setForm({ name: "", email: "", service: "", message: "" });
       setGdprConsent(false);
+      setNewsletterConsent(false);
     } catch (error) {
       console.error("Error submitting lead:", error);
       toast({
@@ -128,6 +131,17 @@ const Contact = () => {
                 Privacy Policy
               </Link>
               . I can withdraw my consent at any time.
+            </span>
+          </label>
+          <label className="flex items-start gap-3 cursor-pointer">
+            <input
+              type="checkbox"
+              checked={newsletterConsent}
+              onChange={(e) => setNewsletterConsent(e.target.checked)}
+              className="mt-1 w-4 h-4 rounded border-border accent-primary"
+            />
+            <span className="text-sm text-muted-foreground leading-relaxed">
+              I'd like to receive marketing updates and tips. You can unsubscribe at any time. (Optional)
             </span>
           </label>
           <button

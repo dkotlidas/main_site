@@ -1,16 +1,17 @@
-import { Send } from "lucide-react";
+import { Send, CheckCircle2, X } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
-import { useToast } from "@/hooks/use-toast";
 import { useScrollFade } from "@/hooks/useScrollFade";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", service: "", message: "" });
   const [gdprConsent, setGdprConsent] = useState(false);
   const [newsletterConsent, setNewsletterConsent] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const { toast } = useToast();
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const ref = useScrollFade();
 
   const services = [

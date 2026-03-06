@@ -80,6 +80,7 @@ const Contact = () => {
             type="text"
             placeholder="Your Name"
             required
+            maxLength={200}
             value={form.name}
             onChange={(e) => setForm({ ...form, name: e.target.value })}
             className="w-full bg-card border border-border rounded-xl px-5 py-3.5 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-shadow font-body"
@@ -99,6 +100,7 @@ const Contact = () => {
             type="email"
             placeholder="Your Email"
             required
+            maxLength={320}
             value={form.email}
             onChange={(e) => setForm({ ...form, email: e.target.value })}
             className="w-full bg-card border border-border rounded-xl px-5 py-3.5 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-shadow font-body"
@@ -107,6 +109,7 @@ const Contact = () => {
             placeholder="Your Message"
             required
             rows={5}
+            maxLength={5000}
             value={form.message}
             onChange={(e) => setForm({ ...form, message: e.target.value })}
             className="w-full bg-card border border-border rounded-xl px-5 py-3.5 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-shadow font-body resize-none"

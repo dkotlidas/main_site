@@ -6,6 +6,16 @@ const corsHeaders = {
     "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
 };
 
+const ALLOWED_SERVICES = [
+  "Meta & Social Ads",
+  "Google Ads",
+  "Tag Manager Setup",
+  "Tracking & Attribution",
+  "Strategy",
+  "Creative Direction",
+  "Consulting & Training",
+];
+
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
@@ -20,6 +30,32 @@ Deno.serve(async (req) => {
 
     const { name, email, service, message } = await req.json();
 
+    // Input validation
+    if (!name || typeof name !== "string" || name.trim().length === 0 || name.length > 200) {
+      return new Response(JSON.stringify({ success: false, error: "Invalid name" }), {
+        status: 400,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+    if (!email || typeof email !== "string" || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email) || email.length > 320) {
+      return new Response(JSON.stringify({ success: false, error: "Invalid email" }), {
+        status: 400,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+    if (!service || !ALLOWED_SERVICES.includes(service)) {
+      return new Response(JSON.stringify({ success: false, error: "Invalid service" }), {
+        status: 400,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+    if (!message || typeof message !== "string" || message.trim().length === 0 || message.length > 5000) {
+      return new Response(JSON.stringify({ success: false, error: "Invalid message" }), {
+        status: 400,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+
     const response = await fetch("https://api.notion.com/v1/pages", {
       method: "POST",
       headers: {
@@ -30,10 +66,10 @@ Deno.serve(async (req) => {
       body: JSON.stringify({
         parent: { database_id: NOTION_DATABASE_ID },
         properties: {
-          Name: { title: [{ text: { content: name } }] },
-          Email: { email: email },
+          Name: { title: [{ text: { content: name.trim() } }] },
+          Email: { email: email.trim() },
           Service: { select: { name: service } },
-          Message: { rich_text: [{ text: { content: message } }] },
+          Message: { rich_text: [{ text: { content: message.trim() } }] },
           Status: { status: { name: "Not started" } },
         },
       }),
@@ -43,7 +79,7 @@ Deno.serve(async (req) => {
 
     if (!response.ok) {
       console.error("Notion API error:", JSON.stringify(data));
-      throw new Error(`Notion API error [${response.status}]: ${JSON.stringify(data)}`);
+      throw new Error(`Notion API error [${response.status}]`);
     }
 
     return new Response(JSON.stringify({ success: true, id: data.id }), {
@@ -52,8 +88,7 @@ Deno.serve(async (req) => {
     });
   } catch (error) {
     console.error("Error syncing to Notion:", error);
-    const errorMessage = error instanceof Error ? error.message : "Unknown error";
-    return new Response(JSON.stringify({ success: false, error: errorMessage }), {
+    return new Response(JSON.stringify({ success: false, error: "Internal server error" }), {
       status: 500,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });

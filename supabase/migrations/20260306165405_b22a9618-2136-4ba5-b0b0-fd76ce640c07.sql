@@ -1,0 +1,1 @@
+ALTER TABLE public.leads ADD COLUMN newsletter_consent boolean NOT NULL DEFAULT false;

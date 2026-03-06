@@ -21,6 +21,7 @@ export type Database = {
           id: string
           message: string
           name: string
+          newsletter_consent: boolean
           service: string
           status: string
         }
@@ -30,6 +31,7 @@ export type Database = {
           id?: string
           message: string
           name: string
+          newsletter_consent?: boolean
           service: string
           status?: string
         }
@@ -39,6 +41,7 @@ export type Database = {
           id?: string
           message?: string
           name?: string
+          newsletter_consent?: boolean
           service?: string
           status?: string
         }

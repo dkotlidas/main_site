@@ -185,7 +185,7 @@ const Contact = () => {
                 You're All Set!
               </h3>
               <p className="text-muted-foreground font-body leading-relaxed mb-6">
-                Thanks for reaching out — I've received your message and I'll get back to you within 24 hours. Let's make your ads work harder.
+                Thanks for reaching out!<br />I've received your message and I'll get back to you within 24 hours. Let's make your ads work harder.
               </p>
 
               <button

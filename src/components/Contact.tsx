@@ -146,8 +146,58 @@ const Contact = () => {
             <Send className="w-4 h-4" /> {isSubmitting ? "Sending..." : "Book a Free Strategy Call"}
           </button>
           <p className="text-center text-muted-foreground text-sm">I'll get back to you within 24 hours.</p>
+          {submitError && (
+            <p className="text-center text-destructive text-sm font-medium">{submitError}</p>
+          )}
         </form>
       </div>
+
+      {/* Success Popup Overlay */}
+      <AnimatePresence>
+        {showSuccess && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-foreground/60 backdrop-blur-sm px-4"
+            onClick={() => setShowSuccess(false)}
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.85, y: 30 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              transition={{ type: "spring", damping: 25, stiffness: 350 }}
+              className="relative bg-card border border-border rounded-2xl shadow-2xl p-8 md:p-10 max-w-md w-full text-center"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={() => setShowSuccess(false)}
+                className="absolute top-4 right-4 text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <X className="w-5 h-5" />
+              </button>
+
+              <div className="mx-auto mb-5 w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+                <CheckCircle2 className="w-9 h-9 text-primary" />
+              </div>
+
+              <h3 className="text-2xl font-heading font-bold text-foreground mb-2">
+                You're All Set!
+              </h3>
+              <p className="text-muted-foreground font-body leading-relaxed mb-6">
+                Thanks for reaching out — I've received your message and I'll get back to you within 24 hours. Let's make your ads work harder.
+              </p>
+
+              <button
+                onClick={() => setShowSuccess(false)}
+                className="inline-flex items-center justify-center px-7 py-3 rounded-xl font-heading font-semibold text-sm tracking-wide bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+              >
+                Got It
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };

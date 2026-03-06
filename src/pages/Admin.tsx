@@ -30,6 +30,21 @@ const Admin = () => {
       navigate("/admin/login");
       return;
     }
+
+    // Verify the user has admin role
+    const { data: roles } = await supabase
+      .from("user_roles")
+      .select("role")
+      .eq("user_id", user.id)
+      .eq("role", "admin");
+
+    if (!roles || roles.length === 0) {
+      await supabase.auth.signOut();
+      navigate("/admin/login");
+      toast({ title: "Access denied", description: "You do not have admin privileges.", variant: "destructive" });
+      return;
+    }
+
     fetchLeads();
   };
 

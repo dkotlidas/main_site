@@ -52,20 +52,14 @@ const Contact = () => {
         },
       });
 
-      toast({
-        title: "Message sent!",
-        description: "Thanks for reaching out. I'll get back to you within 24 hours.",
-      });
+      setShowSuccess(true);
+      setSubmitError(null);
       setForm({ name: "", email: "", service: "", message: "" });
       setGdprConsent(false);
       setNewsletterConsent(false);
     } catch (error) {
       console.error("Error submitting lead:", error);
-      toast({
-        title: "Something went wrong",
-        description: "Please try again or reach out directly via LinkedIn.",
-        variant: "destructive",
-      });
+      setSubmitError("Please try again or reach out directly via LinkedIn.");
     } finally {
       setIsSubmitting(false);
     }

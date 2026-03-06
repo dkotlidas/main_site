@@ -34,7 +34,7 @@ Deno.serve(async (req) => {
           Email: { email: email },
           Service: { select: { name: service } },
           Message: { rich_text: [{ text: { content: message } }] },
-          Status: { select: { name: "New" } },
+          Status: { status: { name: "Not started" } },
         },
       }),
     });

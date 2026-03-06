@@ -40,7 +40,7 @@ const Contact = () => {
 
       // Sync lead to Notion (fire-and-forget, don't block form success)
       supabase.functions.invoke("sync-lead-to-notion", {
-        body: { name: form.name, email: form.email, service: form.service, message: form.message },
+        body: { name: form.name, email: form.email, service: form.service, message: form.message, newsletter_consent: newsletterConsent },
       }).catch((err) => console.error("Notion sync failed:", err));
 
       (window as any).dataLayer = (window as any).dataLayer || [];

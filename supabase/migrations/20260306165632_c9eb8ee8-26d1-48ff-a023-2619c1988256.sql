@@ -1,0 +1,2 @@
+ALTER TABLE public.leads ALTER COLUMN message DROP NOT NULL;
+ALTER TABLE public.leads ALTER COLUMN message SET DEFAULT '';

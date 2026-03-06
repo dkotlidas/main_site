@@ -81,7 +81,7 @@ const Contact = () => {
         <form onSubmit={handleSubmit} className="space-y-5">
           <input
             type="text"
-            placeholder="Your Name"
+            placeholder="Your Name *"
             required
             maxLength={200}
             value={form.name}
@@ -94,14 +94,14 @@ const Contact = () => {
             onChange={(e) => setForm({ ...form, service: e.target.value })}
             className="w-full bg-card border border-border rounded-xl px-5 py-3.5 text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-shadow font-body appearance-none"
           >
-            <option value="" disabled className="text-muted-foreground">Select a Service</option>
+            <option value="" disabled className="text-muted-foreground">Select a Service *</option>
             {services.map((s) => (
               <option key={s} value={s}>{s}</option>
             ))}
           </select>
           <input
             type="email"
-            placeholder="Your Email"
+            placeholder="Your Email *"
             required
             maxLength={320}
             value={form.email}
@@ -109,8 +109,7 @@ const Contact = () => {
             className="w-full bg-card border border-border rounded-xl px-5 py-3.5 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-shadow font-body"
           />
           <textarea
-            placeholder="Your Message"
-            required
+            placeholder="Your Message (optional)"
             rows={5}
             maxLength={5000}
             value={form.message}

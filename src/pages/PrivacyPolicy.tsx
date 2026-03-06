@@ -39,6 +39,7 @@ const PrivacyPolicy = () => {
             <li>Email address</li>
             <li>Service interest</li>
             <li>Message content</li>
+            <li>Newsletter subscription preference</li>
           </ul>
 
           <h2 className="text-2xl font-heading font-bold text-foreground mt-10">4. Purpose of Processing</h2>
@@ -46,12 +47,13 @@ const PrivacyPolicy = () => {
           <ul className="list-disc pl-6 space-y-1">
             <li>To respond to your inquiry</li>
             <li>To provide the services you requested</li>
+            <li>To send marketing updates and tips, if you opted in to our newsletter</li>
             <li>To improve our website and services</li>
           </ul>
 
           <h2 className="text-2xl font-heading font-bold text-foreground mt-10">5. Legal Basis</h2>
           <p>
-            We process your personal data based on your explicit consent (Article 6(1)(a) GDPR), which you provide by checking the consent box on our contact form.
+            We process your personal data based on your explicit consent (Article 6(1)(a) GDPR), which you provide by checking the consent box on our contact form. For newsletter communications, we rely on separate, freely given consent via the optional newsletter checkbox. You may unsubscribe from the newsletter at any time without affecting your inquiry.
           </p>
 
           <h2 className="text-2xl font-heading font-bold text-foreground mt-10">6. Data Retention</h2>

@@ -15,6 +15,7 @@ const About = () => {
               <img
                 src={portrait}
                 alt="Dimitrios Kotlidas"
+                loading="lazy"
                 className="relative rounded-2xl w-72 md:w-80 object-cover glow-border"
               />
             </div>

@@ -44,6 +44,11 @@ const Contact = () => {
         body: { name: form.name, email: form.email, service: form.service, message: form.message, newsletter_consent: newsletterConsent },
       }).catch((err) => console.error("Notion sync failed:", err));
 
+      // Send email notification (fire-and-forget)
+      supabase.functions.invoke("send-lead-notification", {
+        body: { name: form.name, email: form.email, service: form.service, message: form.message, newsletter_consent: newsletterConsent },
+      }).catch((err) => console.error("Email notification failed:", err));
+
       (window as any).dataLayer = (window as any).dataLayer || [];
       (window as any).dataLayer.push({
         event: "form_submit",

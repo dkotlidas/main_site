@@ -18,7 +18,7 @@ const Contact = () => {
           <iframe
             src={`${CALENDLY_URL}?hide_gdpr_banner=1&background_color=1a1a2e&text_color=ffffff&primary_color=6d5acd`}
             width="100%"
-            height="660"
+            height="900"
             frameBorder="0"
             title="Book a Free Strategy Call"
             loading="lazy"

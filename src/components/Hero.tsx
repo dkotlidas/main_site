@@ -32,12 +32,6 @@ const Hero = () => {
               >
                 Book a Free Strategy Call
               </a>
-              <a
-                href="#contact"
-                className="inline-flex items-center px-7 py-3.5 rounded-lg font-heading font-semibold text-sm tracking-wide border border-foreground/20 text-foreground hover:bg-foreground/5 transition-colors"
-              >
-                Contact Me
-              </a>
             </div>
           </motion.div>
 

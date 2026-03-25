@@ -3,19 +3,15 @@ import { useScrollFade } from "@/hooks/useScrollFade";
 
 const cases = [
   {
-    icon: ShoppingBag,
-    title: "Fashion E-Commerce",
-    tag: "Fashion E-Commerce · Meta Ads",
-    heroStat: { label: "ROAS", value: "9.71x" },
+    icon: Users,
+    title: "B2B Lead Generation",
+    tag: "B2B · Meta Ads",
+    heroStat: { label: "Leads", value: "312" },
     stats: [
-      { label: "Revenue", value: "€162,957" },
-      { label: "CPA", value: "€5.76" },
+      { label: "CPL", value: "€41" },
+      { label: "Revenue Generated", value: "€27K" },
     ],
-    description: "Scaled a fashion e-commerce brand from €0 to €162K in revenue over 3 months using precision targeting and systematic creative testing on Meta.",
-    testimonial: {
-      quote: "Dimitris completely transformed our ad performance. The results spoke for themselves.",
-      author: "E.P., E-Commerce Manager",
-    },
+    description: "Ran a lead generation campaign for a B2B company targeting SMB decision-makers. Delivered consistent pipeline growth with a CPL well below the industry average.",
   },
   {
     icon: TrendingUp,
@@ -30,14 +26,14 @@ const cases = [
   },
   {
     icon: BarChart3,
-    title: "Account Recovery, Retail",
-    tag: "Retail · Meta Ads",
-    heroStat: { label: "After", value: "8x ROAS" },
+    title: "Local Service Business — Lead Gen",
+    tag: "Service Business · Meta & Google Ads",
+    heroStat: { label: "Growth", value: "3.2x" },
     stats: [
-      { label: "Before", value: "2x ROAS" },
-      { label: "Growth", value: "4x" },
+      { label: "CPL", value: "€55" },
+      { label: "Qualified Leads", value: "180" },
     ],
-    description: "Took over a failing Meta Ads account and fully restructured campaigns within 60 days, quadrupling performance from 2x to 8x ROAS.",
+    description: "Built a full-funnel lead generation system for a local service provider, combining Meta awareness with Google intent capture. Achieved a stable CPL within 30 days of launch.",
   },
   {
     icon: Users,

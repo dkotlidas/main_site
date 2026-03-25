@@ -27,10 +27,10 @@ const Hero = () => {
             </p>
             <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
               <a
-                href="#case-studies"
+                href="#contact"
                 className="inline-flex items-center px-7 py-3.5 rounded-lg font-heading font-semibold text-sm tracking-wide bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
               >
-                See How I Can Help You
+                Book a Free Strategy Call
               </a>
               <a
                 href="#contact"

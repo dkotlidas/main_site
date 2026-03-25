@@ -10,7 +10,7 @@ const goodFit = [
 const notFit = [
   "Businesses with no existing product-market fit",
   "One-off requests with no ongoing commitment",
-  "Budgets under €1K/month in ad spend",
+  "Budgets under €500/month in ad spend",
 ];
 
 const FitSection = () => {

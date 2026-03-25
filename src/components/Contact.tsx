@@ -14,17 +14,11 @@ const Contact = () => {
           <p className="text-muted-foreground mt-3 font-body">Pick a time that works for you and let's talk about scaling your ads.</p>
         </div>
 
-        <div className="rounded-2xl overflow-hidden border border-border bg-card">
-          <iframe
-            src={`${CALENDLY_URL}?hide_gdpr_banner=1&background_color=1a1a2e&text_color=ffffff&primary_color=6d5acd`}
-            width="100%"
-            height="900"
-            frameBorder="0"
-            title="Book a Free Strategy Call"
-            loading="lazy"
-            className="w-full"
-          />
-        </div>
+        <div
+          className="calendly-inline-widget rounded-2xl overflow-hidden border border-border bg-card"
+          data-url={`${CALENDLY_URL}?hide_gdpr_banner=1&background_color=1a1a2e&text_color=ffffff&primary_color=6d5acd`}
+          style={{ minWidth: '320px', height: '900px' }}
+        />
       </div>
     </section>
   );

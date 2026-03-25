@@ -1,7 +1,15 @@
 import { TrendingUp, ShoppingBag, BarChart3, Users } from "lucide-react";
 import { useScrollFade } from "@/hooks/useScrollFade";
 
-const cases = [
+const cases: Array<{
+  icon: typeof Users;
+  title: string;
+  tag: string;
+  heroStat: { label: string; value: string };
+  stats: { label: string; value: string }[];
+  description: string;
+  testimonial?: { quote: string; author: string };
+}> = [
   {
     icon: Users,
     title: "B2B Lead Generation",

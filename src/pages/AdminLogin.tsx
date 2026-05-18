@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 
@@ -25,7 +26,12 @@ const AdminLogin = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background px-4">
+    <main className="min-h-screen flex items-center justify-center bg-background px-4">
+      <Helmet>
+        <title>Admin Login | Dimitrios Kotlidas</title>
+        <meta name="robots" content="noindex,nofollow" />
+        <link rel="canonical" href="https://dkotlidas.com/admin/login" />
+      </Helmet>
       <div className="w-full max-w-sm">
         <h1 className="text-2xl font-heading font-extrabold text-center mb-8">Admin Login</h1>
         <form onSubmit={handleLogin} className="space-y-4">
@@ -54,7 +60,7 @@ const AdminLogin = () => {
           </button>
         </form>
       </div>
-    </div>
+    </main>
   );
 };
 

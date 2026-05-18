@@ -1,9 +1,19 @@
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { ArrowLeft } from "lucide-react";
 
 const PrivacyPolicy = () => {
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <main className="min-h-screen bg-background text-foreground">
+      <Helmet>
+        <title>Privacy Policy | Dimitrios Kotlidas</title>
+        <meta name="description" content="How Dimitrios Kotlidas collects, uses, and safeguards your personal data in compliance with GDPR." />
+        <link rel="canonical" href="https://dkotlidas.com/privacy-policy" />
+        <meta name="robots" content="index,follow" />
+        <meta property="og:title" content="Privacy Policy | Dimitrios Kotlidas" />
+        <meta property="og:description" content="GDPR-compliant privacy policy for dkotlidas.com." />
+        <meta property="og:url" content="https://dkotlidas.com/privacy-policy" />
+      </Helmet>
       <div className="container mx-auto max-w-3xl px-4 py-16">
         <Link
           to="/"
@@ -92,7 +102,7 @@ const PrivacyPolicy = () => {
           </p>
         </div>
       </div>
-    </div>
+    </main>
   );
 };
 

@@ -19,8 +19,10 @@ const Hero = () => {
               Performance Marketing Specialist, Meta & Google Ads
             </p>
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-heading font-extrabold leading-[1.05] mb-6 text-center lg:text-left">
-              Dimitrios<br />
-              <span className="gradient-text">Kotlidas</span>
+              Dimitrios <span className="gradient-text">Kotlidas</span>
+              <span className="block text-2xl sm:text-3xl md:text-4xl font-heading font-semibold text-muted-foreground mt-3">
+                Performance Marketing Specialist — Meta &amp; Google Ads
+              </span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8 max-w-lg text-center lg:text-left mx-auto lg:mx-0">
               I help brands turn ad spend into predictable, scalable growth across Meta and Google.
@@ -45,7 +47,11 @@ const Hero = () => {
               <div className="absolute inset-0 rounded-2xl bg-primary/20 blur-2xl scale-110" />
               <img
                 src={portrait}
-                alt="Dimitrios Kotlidas"
+                alt="Dimitrios Kotlidas, Performance Marketing Specialist"
+                width={384}
+                height={500}
+                fetchPriority="high"
+                decoding="async"
                 className="relative rounded-2xl w-72 md:w-80 lg:w-96 object-contain max-h-[500px]"
               />
             </div>

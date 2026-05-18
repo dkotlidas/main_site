@@ -3,4 +3,4 @@ Allow: /
 Disallow: /admin
 Disallow: /admin/login
 
-Sitemap: https://dimitris-roi-engine.lovable.app/sitemap.xml
+Sitemap: https://dkotlidas.com/sitemap.xml

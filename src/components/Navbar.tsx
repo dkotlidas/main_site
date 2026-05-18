@@ -30,7 +30,12 @@ const Navbar = () => {
             Work With Me
           </a>
         </div>
-        <button className="md:hidden text-foreground" onClick={() => setOpen(!open)}>
+        <button
+          className="md:hidden text-foreground"
+          onClick={() => setOpen(!open)}
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+        >
           {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
       </div>

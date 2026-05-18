@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { supabase } from "@/integrations/supabase/client";
 import { LogOut, Trash2, RefreshCw } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
@@ -93,6 +94,10 @@ const Admin = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>Admin — Leads | Dimitrios Kotlidas</title>
+        <meta name="robots" content="noindex,nofollow" />
+      </Helmet>
       <header className="border-b border-border px-4 py-4">
         <div className="container mx-auto max-w-6xl flex items-center justify-between">
           <h1 className="font-heading font-extrabold text-lg">

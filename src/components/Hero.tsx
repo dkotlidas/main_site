@@ -19,7 +19,7 @@ const Hero = () => {
               Performance Marketing Specialist, Meta & Google Ads
             </p>
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-heading font-extrabold leading-[1.05] mb-6 text-center lg:text-left">
-              Dimitrios <span className="gradient-text">Kotlidas</span>
+              Dimitrios Kotlidas
               <span className="block text-2xl sm:text-3xl md:text-4xl font-heading font-semibold text-muted-foreground mt-3">
                 Performance Marketing Specialist — Meta &amp; Google Ads
               </span>

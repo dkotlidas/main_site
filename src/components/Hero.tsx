@@ -32,7 +32,7 @@ const Hero = () => {
                 href="#contact"
                 className="inline-flex items-center px-7 py-3.5 rounded-lg font-heading font-semibold text-sm tracking-wide bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
               >
-                Book a Free Strategy Call
+                Book a Free 30min Call
               </a>
             </div>
           </motion.div>

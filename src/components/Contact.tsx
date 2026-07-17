@@ -23,7 +23,7 @@ const Contact = () => {
       <div ref={scrollRef} className="container mx-auto max-w-3xl scroll-fade">
         <div className="text-center mb-10">
           <p className="text-primary font-heading font-semibold tracking-widest uppercase text-sm mb-3">Get In Touch</p>
-          <h2 className="text-4xl md:text-5xl font-heading font-extrabold">Book a Free Strategy Call</h2>
+          <h2 className="text-4xl md:text-5xl font-heading font-extrabold">Book a Free 30min Call</h2>
           <p className="text-muted-foreground mt-3 font-body">Pick a time that works for you and let's talk about scaling your ads.</p>
         </div>
 

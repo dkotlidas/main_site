@@ -118,7 +118,7 @@ const CaseStudies = () => {
             href="#contact"
             className="inline-flex items-center px-8 py-4 rounded-xl font-heading font-semibold text-sm tracking-wide bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
           >
-            Book a Free Strategy Call
+            Book a Free 30min Call
           </a>
         </div>
       </div>

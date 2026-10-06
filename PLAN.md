@@ -80,7 +80,7 @@ Positioning σήμερα: γενικός freelancer για e-commerce και lea
 Όλα μπαίνουν ως `[CONFIRM]` στο `docs/CONTENT-TODO.md`.
 
 ### 1.8 Hosting
-Το README είναι το default του Lovable. Δεν υπάρχει `vercel.json` ή `netlify.toml`. Το site πιθανότατα σερβίρεται από Lovable με custom domain. `[CONFIRM]` γιατί από αυτό εξαρτώνται τα 301 redirects.
+Το README είναι το default του Lovable. Δεν υπάρχει `vercel.json` ή `netlify.toml`. Το site πιθανότατα σερβίρεται από Lovable με custom domain. Το νέο site πάει σε Vercel (απόφαση 6/10).
 
 ---
 
@@ -141,11 +141,11 @@ Positioning σήμερα: γενικός freelancer για e-commerce και lea
 
 ```
 index.html                     # GTM αμετάβλητο, νέα meta
+vercel.json                    # 301 redirects, SPA rewrites, security headers
 .env.example                   # VITE_SITE_URL, VITE_EMAIL_SIGNUP_URL
 public/
   og/default.png, og/book.png, og/webinar.png
   robots.txt, sitemap.xml, llms.txt
-  _redirects | vercel.json     # ανάλογα με το hosting (§6)
 docs/
   current-site-audit.md        # σύνοψη §1 (BRIEF Phase 0)
   tracking-plan.md             # events, παράμετροι, triggers για GTM
@@ -230,10 +230,10 @@ src/
 | `/#contact` | `/book` | Hash, δεν γίνεται server redirect. Μικρό client script στο `Index` που στέλνει `#contact` → `/book` |
 | `/#services`, `/#about`, `/#case-studies` κ.λπ. | `/#how-it-works`, `/about`, `/case-studies` | Hash, client side |
 
-Ένα SPA δεν μπορεί να στείλει πραγματικό 301. Τα redirects μπαίνουν στο hosting:
-- Netlify / Cloudflare Pages: `public/_redirects`
-- Vercel: `vercel.json`
-- Lovable: δεν υποστηρίζει custom redirects. **Χρειάζεται απόφαση για hosting.** `[ΑΠΟΦΑΣΗ]`
+Ένα SPA δεν μπορεί να στείλει πραγματικό 301. **Hosting: Vercel (απόφαση 6/10).**
+- `vercel.json` στη ρίζα: `redirects` με `permanent: true` (301) για τον πίνακα πάνω, και `rewrites` όλων των routes στο `/index.html` για το React Router.
+- Το ίδιο αρχείο κρατάει security headers (BRIEF §8).
+- Η σύνδεση του repo στο Vercel, τα env vars και το DNS γίνονται από τον Dimitris (BRIEF §12.5).
 
 Canonical domain (`.com` ή `.gr`): `[CONFIRM]`. Προτείνω `dkotlidas.com`, αφού όλα τα canonical tags το χρησιμοποιούν ήδη.
 
@@ -311,7 +311,7 @@ Canonical domain (`.com` ή `.gr`): `[CONFIRM]`. Προτείνω `dkotlidas.com
 - Script που αποτυγχάνει αν βρει `[CONFIRM` στο `src/content` κατά το production build.
 
 **Βήμα 8. Launch (με τον Dimitris, όχι από εμένα)**
-- Επιλογή hosting, redirects, canonical domain, DNS.
+- Σύνδεση repo στο Vercel, έλεγχος redirects στο preview, canonical domain, DNS.
 - GTM preview: `call_booked`, consent, κανένα tag πριν από consent σε EU/UK/CH.
 - LinkedIn Featured links. Το Lovable ακυρώνεται μετά από μία εβδομάδα σταθερής κίνησης.
 
@@ -323,7 +323,7 @@ Canonical domain (`.com` ή `.gr`): `[CONFIRM]`. Προτείνω `dkotlidas.com
 
 1. ~~**Διάρκεια κλήσης**~~ **Αποφασίστηκε:** 15', ίδιο URL. Το copy γράφει "Book a 15 min call".
 2. ~~**Email course / προορισμός emails**~~ **Αποφασίστηκε:** popup με lead magnet, χτίζεται τώρα και μένει ανενεργό (`enabled: false`) μέχρι να υπάρχουν lead magnet και provider. Υποψήφιοι provider: MailerLite ή Brevo (δωρεάν πακέτο, εύκολα για την Christina). Το CLAUDE.md ενημερώθηκε.
-3. **Hosting για redirects:** Default: Netlify ή Vercel (δωρεάν tier, υποστηρίζουν 301 και preview deploys). Το Lovable δεν κάνει 301.
+3. ~~**Hosting**~~ **Αποφασίστηκε (6/10):** Vercel. Redirects και SPA rewrite στο `vercel.json`, preview deploy ανά branch.
 4. **Consent Mode:** Default: CMP template μέσα στο GTM, χωρίς αλλαγή στο `index.html`.
 5. **`@supabase/supabase-js` και `package-lock.json`:** Default: αφαιρώ τον κώδικα τώρα, το package το αφαιρείς εσύ ή μου δίνεις ρητή άδεια.
 6. **Prerender για LinkedIn previews:** Default: ναι, με μία νέα dev dependency.

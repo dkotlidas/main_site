@@ -213,9 +213,8 @@ src/
 Σημείωση: το CLAUDE.md λέει νέα components στο `src/components`. Οι υποφάκελοι `layout/` και `home/` είναι μέσα σε αυτόν. Αν προτιμάς flat δομή, τα βγάζω ένα επίπεδο πάνω.
 
 ### Νέες βιβλιοθήκες
-Καμία στο σχέδιο. Δύο πιθανές, μόνο με έγκριση:
-- **Prerender** (π.χ. `vite-react-ssg` ή script με Playwright) για στατικό HTML ανά route. Λόγος: SEO και LinkedIn previews, γιατί το LinkedIn δεν τρέχει JavaScript και θα βλέπει τα meta του `index.html` για κάθε σελίδα. Χωρίς αυτό, τα OG ανά σελίδα δεν θα εμφανίζονται στα LinkedIn shares.
-- **`@playwright/test`** για το smoke test του BRIEF §8. Ο Chromium υπάρχει ήδη στο περιβάλλον.
+- **`vite-react-ssg`: εγκρίθηκε (6/10).** Prerender για στατικό HTML ανά route. Λόγος: SEO και LinkedIn previews, γιατί το LinkedIn δεν τρέχει JavaScript και θα βλέπει τα meta του `index.html` για κάθε σελίδα. Χωρίς αυτό, τα OG ανά σελίδα δεν θα εμφανίζονται στα LinkedIn shares.
+- **`@playwright/test`: θέλει έγκριση.** Για το smoke test του BRIEF §8. Ο Chromium υπάρχει ήδη στο περιβάλλον.
 
 ---
 
@@ -281,6 +280,7 @@ Canonical domain (`.com` ή `.gr`): `[CONFIRM]`. Προτείνω `dkotlidas.com
 **Βήμα 3. Foundation**
 - Tokens, Inter, typography scale, dark mode στο `index.css` / `tailwind.config.ts`.
 - `src/content/site.ts` με Calendly URL, links, nav, stats.
+- `vite-react-ssg`: routes ως array, `main.tsx` με `ViteReactSSG`, build script `vite-react-ssg build`. Έλεγχος ότι το `dist/` έχει ένα HTML ανά route και τα GTM snippets αυτούσια.
 - Layout route, `SiteHeader`, `SiteFooter`, `Section`, `Seo`, `BookCallButton`.
 - Βελτιστοποιημένο portrait.
 - **Στάση: δείχνω στον Dimitris την πρώτη οθόνη (header + hero, mobile και desktop) για έγκριση** (BRIEF §7).
@@ -302,7 +302,7 @@ Canonical domain (`.com` ή `.gr`): `[CONFIRM]`. Προτείνω `dkotlidas.com
 
 **Βήμα 7. SEO, performance, QA**
 - `Seo` ανά σελίδα, JSON-LD `Person`, `ProfessionalService`, `FAQPage`, `sitemap.xml`, `robots.txt`, `llms.txt`, στατικά OG images.
-- Prerender αν εγκριθεί (§5).
+- Έλεγχος prerender: κάθε route έχει δικό του `<title>`, OG tags και περιεχόμενο στο στατικό HTML (LinkedIn Post Inspector).
 - Fonts με `<link rel="preload">` αντί `@import` (στο `index.html`, εκτός GTM block).
 - Lighthouse mobile 95+ σε `/`, `/book`, `/webinar`.
 - Tests: track helper, όλα τα CTA καταλήγουν σε `/book`, το `/book` έχει το σωστό Calendly URL.
@@ -324,5 +324,5 @@ Canonical domain (`.com` ή `.gr`): `[CONFIRM]`. Προτείνω `dkotlidas.com
 3. ~~**Hosting**~~ **Αποφασίστηκε (6/10):** Vercel. Redirects και SPA rewrite στο `vercel.json`, preview deploy ανά branch.
 4. ~~**Consent Mode**~~ **Αποφασίστηκε (6/10):** CookieYes, ήδη στο GTM. Τίποτα στον κώδικα, μόνο έλεγχος στη Phase 7.
 5. ~~**`@supabase/supabase-js`**~~ **Έγινε (6/10, με άδεια Dimitris):** αφαιρέθηκαν ο κώδικας, ο φάκελος `supabase/`, οι σελίδες admin και το package. Από το `package-lock.json` βγήκαν μόνο οι εγγραφές του Supabase. Το `bun.lock`/`bun.lockb` δεν άλλαξαν.
-6. **Prerender για LinkedIn previews:** Default: ναι, με μία νέα dev dependency.
+6. ~~**Prerender**~~ **Αποφασίστηκε (6/10):** ναι, με `vite-react-ssg` ως νέα dependency (λόγος: LinkedIn previews και SEO ανά σελίδα). Μπαίνει στο Βήμα 3 (foundation), ώστε όλες οι σελίδες να χτιστούν από την αρχή με αυτό. Το `index.html` μένει το template, άρα τα GTM snippets δεν αλλάζουν. Η εγκατάσταση θα αλλάξει το `package-lock.json` μόνο για αυτό το package.
 7. **Meta pixel:** επιβεβαίωσε ότι φορτώνει από το GTM (δεν είναι στο `index.html`).

@@ -16,7 +16,8 @@ Stack: Vite, React, TypeScript, Tailwind, shadcn/ui.
 - Δεν χρησιμοποιούμε Supabase ή Notion.
 
 Δεν αγγίζεις:
-- τα snippets GTM και Meta pixel στο index.html
+- τα snippets GTM στο index.html (το Meta pixel, το GA4 και το CookieYes
+  φορτώνουν μέσα από το GTM, όχι από τον κώδικα)
 - τα αρχεία bun.lock, bun.lockb, package-lock.json
 
 Επιτρέπεται να αφαιρέσεις:

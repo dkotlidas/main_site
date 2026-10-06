@@ -53,7 +53,7 @@ Positioning σήμερα: γενικός freelancer για e-commerce και lea
 - **Calendly:** `src/components/Contact.tsx`, `CALENDLY_URL = "https://calendly.com/dkotlidas-vrwr/free-strategy-call"`, inline widget, φορτώνει `widget.js` με `useEffect`. Όλα τα CTA είναι anchors `#contact`.
 - Δεν υπάρχει listener για `calendly.event_scheduled`, ούτε dataLayer events από τον κώδικα.
 - **GTM:** `GTM-NTSC726P` στο `index.html` (head + noscript). Δεν αγγίζεται.
-- **Meta pixel:** το CLAUDE.md αναφέρει snippet στο `index.html`, αλλά **δεν βρέθηκε** στο αρχείο. Πιθανότατα φορτώνει μέσα από το GTM. `[CONFIRM]`
+- **Meta pixel:** φορτώνει μέσα από το GTM (επιβεβαίωση Dimitris 6/10), όχι από το `index.html`.
 - Google Search Console verification meta tag στο `index.html`.
 - Consent banner: **CookieYes, φορτώνει μέσα από το GTM** (επιβεβαίωση Dimitris 6/10). Δεν υπάρχει στον κώδικα.
 
@@ -317,7 +317,7 @@ Canonical domain (`.com` ή `.gr`): `[CONFIRM]`. Προτείνω `dkotlidas.com
 
 ---
 
-## 9. Αποφάσεις που χρειάζομαι (μία τη φορά, με προτεινόμενο default)
+## 9. Αποφάσεις (όλες κλειστές, 6/10)
 
 1. ~~**Διάρκεια κλήσης**~~ **Αποφασίστηκε:** 15', ίδιο URL. Το copy γράφει "Book a 15 min call".
 2. ~~**Email course / προορισμός emails**~~ **Αποφασίστηκε:** popup με lead magnet, χτίζεται τώρα και μένει ανενεργό (`enabled: false`) μέχρι να υπάρχουν lead magnet και provider. Υποψήφιοι provider: MailerLite ή Brevo (δωρεάν πακέτο, εύκολα για την Christina). Το CLAUDE.md ενημερώθηκε.
@@ -325,4 +325,6 @@ Canonical domain (`.com` ή `.gr`): `[CONFIRM]`. Προτείνω `dkotlidas.com
 4. ~~**Consent Mode**~~ **Αποφασίστηκε (6/10):** CookieYes, ήδη στο GTM. Τίποτα στον κώδικα, μόνο έλεγχος στη Phase 7.
 5. ~~**`@supabase/supabase-js`**~~ **Έγινε (6/10, με άδεια Dimitris):** αφαιρέθηκαν ο κώδικας, ο φάκελος `supabase/`, οι σελίδες admin και το package. Από το `package-lock.json` βγήκαν μόνο οι εγγραφές του Supabase. Το `bun.lock`/`bun.lockb` δεν άλλαξαν.
 6. ~~**Prerender**~~ **Αποφασίστηκε (6/10):** ναι, με `vite-react-ssg` ως νέα dependency (λόγος: LinkedIn previews και SEO ανά σελίδα). Μπαίνει στο Βήμα 3 (foundation), ώστε όλες οι σελίδες να χτιστούν από την αρχή με αυτό. Το `index.html` μένει το template, άρα τα GTM snippets δεν αλλάζουν. Η εγκατάσταση θα αλλάξει το `package-lock.json` μόνο για αυτό το package.
-7. **Meta pixel:** επιβεβαίωσε ότι φορτώνει από το GTM (δεν είναι στο `index.html`).
+7. ~~**Meta pixel**~~ **Επιβεβαιώθηκε (6/10):** φορτώνει από το GTM. Το CLAUDE.md διορθώθηκε.
+
+Όλες οι αποφάσεις του §9 έχουν κλείσει. Επόμενο: Βήμα 1 του §8.

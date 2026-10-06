@@ -70,3 +70,16 @@
 | 30 | Canonical domain | `.com` και `.gr` | Ποιο είναι το κύριο. Πρόταση: `dkotlidas.com`, αφού τα canonical tags το χρησιμοποιούν ήδη | ⬜ |
 | 31 | Hosting | Vercel | - | ✅ 6/10 |
 | 32 | Consent | CookieYes μέσα στο GTM | - | ✅ 6/10 |
+
+## Κείμενα που έγραψε το Claude (6/10) και θέλουν έλεγχο
+
+| # | Στοιχείο | Αρχείο | Τι να ελέγξεις | Κατάσταση |
+| --- | --- | --- | --- | --- |
+| 33 | Απαντήσεις FAQ (7 objections + 5 πρακτικές) | `src/content/faq.ts` | Ότι κάθε απάντηση ισχύει. Ειδικά: "fixed monthly amount per client account" (δεν αναφέρει τιμή, BRIEF §3), "after the call I send a short summary" | ⬜ |
+| 34 | Χρόνος έναρξης | `src/content/faq.ts` | "live within [CONFIRM: 10 days]", από το LinkedIn headline | ⬜ |
+| 35 | Σελίδα About | `src/content/about.ts` | Οι 4 παράγραφοι. Το "co-founder of a DTC brand" του παλιού site **έμεινε έξω** γιατί δεν είναι στο BRIEF §11. Πες αν το θέλεις | ⬜ |
+| 36 | Privacy και Cookie Policy | `src/content/legal.ts` | Προσχέδιο από ό,τι κάνει το site (Calendly, Luma, GTM/GA4/Meta, CookieYes, Vercel). Χρόνοι διατήρησης, αρχή προστασίας δεδομένων (ΑΠΔΠΧ ή CNIL), επωνυμία. Ιδανικά νομικός έλεγχος | ⬜ |
+| 37 | Βήματα "How it works" | `src/content/home.ts` | Μία γραμμή ανά βήμα, γραμμένη από το Claude | ⬜ |
+| 38 | Κείμενα /book και thanks | `src/content/book.ts`, `src/content/thanks.ts` | 3 γραμμές για την κλήση, κείμενα επιβεβαίωσης | ⬜ |
+| 39 | "What I run" | `src/content/home.ts` | Περιγραφές ανά υπηρεσία (π.χ. αν τρέχεις Shopping/Performance Max) | ⬜ |
+| 40 | Webinar outcomes και agenda | `src/content/webinars.json` | 3 outcomes και τα 5 "ways" | ⬜ |

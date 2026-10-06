@@ -28,7 +28,10 @@ export const site = {
     webinar: { label: "Watch the next webinar", href: "/webinar" },
   },
 
-  legal: [{ label: "Privacy", href: "/privacy" }],
+  legal: [
+    { label: "Privacy", href: "/privacy" },
+    { label: "Cookies", href: "/cookies" },
+  ],
 
   seo: {
     defaultTitle: "White Label Performance Marketing for Agencies | Dimitris Kotlidas",

@@ -2,6 +2,7 @@ import type { RouteRecord } from "vite-react-ssg";
 import Layout from "@/components/layout/Layout";
 import Index from "@/pages/Index";
 import { thanksTypes } from "@/content/thanks";
+import { caseStudies } from "@/content/case-studies";
 
 const page = (load: () => Promise<{ default: React.ComponentType }>) => async () => ({
   Component: (await load()).default,
@@ -23,8 +24,16 @@ export const routes: RouteRecord[] = [
         lazy: page(() => import("@/pages/Thanks")),
         getStaticPaths: () => thanksTypes.map((t) => `thanks/${t}`),
       },
+      { path: "case-studies", lazy: page(() => import("@/pages/CaseStudies")) },
+      {
+        path: "case-studies/:slug",
+        lazy: page(() => import("@/pages/CaseStudy")),
+        getStaticPaths: () => caseStudies.map((c) => `case-studies/${c.slug}`),
+      },
+      { path: "about", lazy: page(() => import("@/pages/About")) },
       // Was /privacy-policy; 301 in vercel.json
-      { path: "privacy", lazy: page(() => import("@/pages/PrivacyPolicy")) },
+      { path: "privacy", lazy: page(() => import("@/pages/Privacy")) },
+      { path: "cookies", lazy: page(() => import("@/pages/Cookies")) },
       { path: "*", lazy: page(() => import("@/pages/NotFound")) },
     ],
   },

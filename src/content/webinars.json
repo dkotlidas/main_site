@@ -1,0 +1,24 @@
+{
+  "title": "5 ways agency owners can increase revenue with white label digital marketing",
+  "next": null,
+  "nextExample": {
+    "_help": "Copy this object into \"next\" when the date is set. Times are ISO 8601 with the time zone offset. lumaEventId (evt-...) is optional and shows the Luma form on /webinar.",
+    "startsAt": "2026-10-29T17:00:00+01:00",
+    "durationMinutes": 45,
+    "lumaUrl": "https://lu.ma/your-event",
+    "lumaEventId": ""
+  },
+  "outcomes": [
+    "[CONFIRM: outcome 1]",
+    "[CONFIRM: outcome 2]",
+    "[CONFIRM: outcome 3]"
+  ],
+  "agenda": [
+    "[CONFIRM: way 1]",
+    "[CONFIRM: way 2]",
+    "[CONFIRM: way 3]",
+    "[CONFIRM: way 4]",
+    "[CONFIRM: way 5]"
+  ],
+  "past": []
+}

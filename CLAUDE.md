@@ -10,7 +10,10 @@ Stack: Vite, React, TypeScript, Tailwind, shadcn/ui.
 - Το βασικό CTA είναι η κράτηση κλήσης μέσω Calendly.
 - Κράτα το ίδιο Calendly link (βρες το στον υπάρχοντα κώδικα) και
   βεβαιώσου ότι δουλεύει σε κάθε σελίδα όπου υπάρχει CTA.
-- Δεν υπάρχει φόρμα leads. Δεν χρησιμοποιούμε Supabase ή Notion.
+- Η μόνη φόρμα είναι το lead magnet popup (LeadMagnetPopup) για list
+  building. Μένει ανενεργό μέχρι να επιλεγεί email provider και να
+  υπάρχει το lead magnet. Καμία άλλη φόρμα leads.
+- Δεν χρησιμοποιούμε Supabase ή Notion.
 
 Δεν αγγίζεις:
 - τα snippets GTM και Meta pixel στο index.html

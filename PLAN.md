@@ -15,7 +15,7 @@
 | Θέμα | BRIEF.md | CLAUDE.md | Απόφαση στο πλάνο |
 | --- | --- | --- | --- |
 | Stack | Next.js App Router, Vercel, `next/image`, `next/og`, `next.config` redirects | Vite, React, TS, Tailwind, shadcn/ui | **Μένουμε σε Vite + React Router.** Τα αντίστοιχα: `react-helmet-async` για metadata, στατικά OG images, redirects στο hosting (βλ. §6) |
-| Φόρμα leads / `/api/subscribe` | Φόρμα email για το 5 email course, API route, adapter provider | "Δεν υπάρχει φόρμα leads" | **Αποφασίστηκε (6/10):** το 5 email course και το `/free-course` βγαίνουν από τη Phase 1. Στη θέση τους μπαίνει ένα **απλό popup με lead magnet** για list building (βλ. §7b). Δεν υπάρχει ακόμη email provider, οπότε το πού καταλήγουν τα emails είναι ανοιχτό (§9, ερώτηση 2). Το CLAUDE.md λέει "Δεν υπάρχει φόρμα leads", άρα χρειάζεται ενημέρωση από τον Dimitris |
+| Φόρμα leads / `/api/subscribe` | Φόρμα email για το 5 email course, API route, adapter provider | "Δεν υπάρχει φόρμα leads" | **Αποφασίστηκε (6/10):** το 5 email course και το `/free-course` βγαίνουν από τη Phase 1. Στη θέση τους μπαίνει ένα **απλό popup με lead magnet** για list building (βλ. §7b). Το popup μένει ανενεργό μέχρι να επιλεγεί provider (§9, ερώτηση 2). Το CLAUDE.md ενημερώθηκε ώστε να το επιτρέπει |
 | Supabase / Notion | Δεν αναφέρεται | Δεν χρησιμοποιούμε, επιτρέπεται η αφαίρεση | **Αφαιρείται** (βλ. §3) |
 | Branch | `rebuild` | - (session: `redesign`) | Δουλεύουμε στο `redesign` |
 | Περιεχόμενο σε MDX | MDX για case studies | Καμία νέα βιβλιοθήκη χωρίς αιτιολόγηση | **TypeScript content files** (`src/content/*.ts`). Μηδέν νέες εξαρτήσεις, ίδιο αποτέλεσμα για 2 έως 3 case studies |
@@ -261,7 +261,7 @@ Canonical domain (`.com` ή `.gr`): `[CONFIRM]`. Προτείνω `dkotlidas.com
 - Mobile: χωρίς exit intent, εμφάνιση μόνο με scroll, πλήρες κλείσιμο με ένα tap. Google τιμωρεί intrusive interstitials σε mobile, οπότε δεν ανοίγει στην πρώτη οθόνη.
 - Accessibility: focus trap και Esc από το Radix Dialog, label στο πεδίο email.
 - Validation με `zod` (υπάρχει ήδη), honeypot πεδίο.
-- **Προορισμός emails: ανοιχτό.** Χωρίς provider δεν υπάρχει πού να αποθηκευτούν, και δεν χρησιμοποιούμε Supabase ή Notion. Μέχρι να αποφασιστεί, το popup χτίζεται αλλά μένει ανενεργό.
+- **Προορισμός emails:** αποφασίστηκε (6/10). Το popup χτίζεται αλλά μένει ανενεργό μέχρι να επιλεγεί provider (MailerLite ή Brevo) και να υπάρχει το lead magnet. Η σύνδεση με τον provider γίνεται με το hosted form endpoint του, χωρίς δικό μας backend.
 
 ---
 
@@ -322,7 +322,7 @@ Canonical domain (`.com` ή `.gr`): `[CONFIRM]`. Προτείνω `dkotlidas.com
 ## 9. Αποφάσεις που χρειάζομαι (μία τη φορά, με προτεινόμενο default)
 
 1. ~~**Διάρκεια κλήσης**~~ **Αποφασίστηκε:** 15', ίδιο URL. Το copy γράφει "Book a 15 min call".
-2. ~~**Email course**~~ **Αποφασίστηκε:** το course βγαίνει από τη Phase 1, μπαίνει popup με lead magnet. **Ανοιχτό: πού πηγαίνουν τα emails** χωρίς provider (βλ. §7b).
+2. ~~**Email course / προορισμός emails**~~ **Αποφασίστηκε:** popup με lead magnet, χτίζεται τώρα και μένει ανενεργό (`enabled: false`) μέχρι να υπάρχουν lead magnet και provider. Υποψήφιοι provider: MailerLite ή Brevo (δωρεάν πακέτο, εύκολα για την Christina). Το CLAUDE.md ενημερώθηκε.
 3. **Hosting για redirects:** Default: Netlify ή Vercel (δωρεάν tier, υποστηρίζουν 301 και preview deploys). Το Lovable δεν κάνει 301.
 4. **Consent Mode:** Default: CMP template μέσα στο GTM, χωρίς αλλαγή στο `index.html`.
 5. **`@supabase/supabase-js` και `package-lock.json`:** Default: αφαιρώ τον κώδικα τώρα, το package το αφαιρείς εσύ ή μου δίνεις ρητή άδεια.

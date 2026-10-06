@@ -323,6 +323,6 @@ Canonical domain (`.com` ή `.gr`): `[CONFIRM]`. Προτείνω `dkotlidas.com
 2. ~~**Email course / προορισμός emails**~~ **Αποφασίστηκε:** popup με lead magnet, χτίζεται τώρα και μένει ανενεργό (`enabled: false`) μέχρι να υπάρχουν lead magnet και provider. Υποψήφιοι provider: MailerLite ή Brevo (δωρεάν πακέτο, εύκολα για την Christina). Το CLAUDE.md ενημερώθηκε.
 3. ~~**Hosting**~~ **Αποφασίστηκε (6/10):** Vercel. Redirects και SPA rewrite στο `vercel.json`, preview deploy ανά branch.
 4. ~~**Consent Mode**~~ **Αποφασίστηκε (6/10):** CookieYes, ήδη στο GTM. Τίποτα στον κώδικα, μόνο έλεγχος στη Phase 7.
-5. **`@supabase/supabase-js` και `package-lock.json`:** Default: αφαιρώ τον κώδικα τώρα, το package το αφαιρείς εσύ ή μου δίνεις ρητή άδεια.
+5. ~~**`@supabase/supabase-js`**~~ **Έγινε (6/10, με άδεια Dimitris):** αφαιρέθηκαν ο κώδικας, ο φάκελος `supabase/`, οι σελίδες admin και το package. Από το `package-lock.json` βγήκαν μόνο οι εγγραφές του Supabase. Το `bun.lock`/`bun.lockb` δεν άλλαξαν.
 6. **Prerender για LinkedIn previews:** Default: ναι, με μία νέα dev dependency.
 7. **Meta pixel:** επιβεβαίωσε ότι φορτώνει από το GTM (δεν είναι στο `index.html`).

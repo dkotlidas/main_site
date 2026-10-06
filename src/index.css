@@ -1,3 +1,13 @@
+/* Inter, latin subset, variable weight 400-700. Self-hosted so the first
+   paint does not wait for Google Fonts. SIL Open Font License 1.1. */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("/fonts/inter-latin-var.woff2") format("woff2");
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

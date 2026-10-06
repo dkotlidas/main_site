@@ -266,13 +266,13 @@ Canonical domain (`.com` ή `.gr`): `[CONFIRM]`. Προτείνω `dkotlidas.com
 
 Κάθε βήμα: μικρά commits στο `redesign`, `npm run build` να περνάει, αναφορά στο τέλος (τι άλλαξε, πώς ελέγχεται, τι πρέπει να αποφασίσει ο Dimitris).
 
-**Βήμα 1. Audit και docs (χωρίς αλλαγή κώδικα)**
+**Βήμα 1. Audit και docs (χωρίς αλλαγή κώδικα)** ✅ 6/10
 - `docs/current-site-audit.md` από το §1.
 - `docs/CONTENT-TODO.md` με όλα τα `[CONFIRM]` του BRIEF §11 και του §1.7.
 - `docs/redirects.md` από το §6.
 
 **Βήμα 2. Καθαρισμός**
-- Αφαίρεση `Admin`, `AdminLogin`, admin routes, `src/integrations/supabase`, `supabase/`.
+- Αφαίρεση `Admin`, `AdminLogin`, admin routes, `src/integrations/supabase`, `supabase/`. ✅ 6/10
 - `.env` εκτός git, `.env.example`, `.gitignore`.
 - `npm run build` και `npm run lint`. Διόρθωση των 3 υπαρχόντων lint errors.
 - Απόφαση για `@supabase/supabase-js` στο `package.json` (§3).

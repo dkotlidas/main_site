@@ -1,5 +1,8 @@
 import { useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { site } from "@/content/site";
+import { withUtm } from "@/lib/utm";
+import { markBookingPending } from "@/lib/conversion";
 
 const SCRIPT_SRC = "https://assets.calendly.com/assets/external/widget.js";
 
@@ -25,7 +28,8 @@ function buildUrl() {
     hide_gdpr_banner: "1",
     ...(dark ? colours.dark : colours.light),
   });
-  return `${site.calendlyUrl}?${params.toString()}`;
+  // Stored UTMs show up in Calendly next to the booking (BRIEF §8)
+  return withUtm(`${site.calendlyUrl}?${params.toString()}`);
 }
 
 function loadScript(): Promise<void> {
@@ -45,6 +49,19 @@ function loadScript(): Promise<void> {
 
 const CalendlyEmbed = () => {
   const ref = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
+
+  // Calendly posts "calendly.event_scheduled" when the visitor books.
+  useEffect(() => {
+    const onMessage = (e: MessageEvent) => {
+      if (e.origin !== "https://calendly.com") return;
+      if (e.data?.event !== "calendly.event_scheduled") return;
+      markBookingPending();
+      navigate("/thanks/booked");
+    };
+    window.addEventListener("message", onMessage);
+    return () => window.removeEventListener("message", onMessage);
+  }, [navigate]);
 
   useEffect(() => {
     let cancelled = false;

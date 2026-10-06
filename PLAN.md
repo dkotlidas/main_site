@@ -293,34 +293,28 @@ Canonical domain (`.com` ή `.gr`): `[CONFIRM]`. Προτείνω `dkotlidas.com
 - Tests: Calendly URL αμετάβλητο, κάθε CTA κράτησης πάει στο `/book` και στέλνει `cta_click`. ✅
 - **Στάση: δείχνω στον Dimitris την πρώτη οθόνη (header + hero, mobile και desktop) για έγκριση** (BRIEF §7).
 
-Ανοιχτά από το Βήμα 3 (για τα επόμενα βήματα):
-- Δεν υπάρχει `404.html` στο build. Το Vercel θα δείχνει τη δική του 404 μέχρι το Βήμα 7.
-- Χωρίς `og:image` μέχρι τα στατικά OG images του Βήματος 7 (η παλιά εικόνα ήταν screenshot του Lovable).
-- Αχρησιμοποίητα πακέτα μετά τον καθαρισμό: `react-helmet-async` (το vite-react-ssg έχει δικό του), `framer-motion`, `@tanstack/react-query`. Αφαίρεση θέλει αλλαγή στο lockfile, άρα έγκριση.
-- Το `src/components/CaseStudies.tsx` και `About.tsx` μένουν ως πρώτη ύλη για τα Βήματα 4 και 6.
+Ανοιχτά από το Βήμα 3: κλειστά στα Βήματα 4 έως 7 (404.html, og:image, παλιά components). Τα αχρησιμοποίητα πακέτα μένουν (βλ. `docs/REVIEW.md`).
 
-**Βήμα 4. Landing page `/`**
-- Sections με τη σειρά του BRIEF §5.2 έως §5.11 (χωρίς το §5.9, που γίνεται popup), copy από `src/content/home.ts`, `faq.ts`, `case-studies.ts`.
-- Κάθε CTA κλήσης πάει σε `/book`. Mobile first.
-- Αφαίρεση των παλιών sections μόλις αντικατασταθούν.
+**Βήμα 4. Landing page `/`** ✅ 6/10
+- Όλα τα sections του BRIEF §5.2 έως §5.11 (το §5.9 έγινε popup). Copy στο `src/content/home.ts`, `faq.ts`, `case-studies.ts`, `webinars.json`.
+- FAQPage, Person, ProfessionalService JSON-LD. Παλιά anchors (`/#contact` κ.λπ.) πάνε στις νέες σελίδες.
 
-**Βήμα 5. Conversion pages**
-- `/book` με `CalendlyEmbed` (ίδιο URL), `call_booked`, redirect `/thanks/booked`.
-- `/webinar` και `WebinarBlock` από `webinars.json`, `LumaEmbed`, fallback "Next date announced soon".
-- `LeadMagnetPopup` (§7b). Μένει ανενεργό (`enabled: false` στο `lead-magnet.ts`) μέχρι να υπάρχουν lead magnet και προορισμός για τα emails.
-- `/thanks/:type`, `lib/track.ts`, `lib/utm.ts`, `docs/tracking-plan.md`.
+**Βήμα 5. Conversion pages** ✅ 6/10
+- `/book`: `book_call_view`, listener `calendly.event_scheduled`, UTM στο Calendly, redirect `/thanks/booked`.
+- `/webinar` και webinar block από `webinars.json` (ώρα στη ζώνη του επισκέπτη), Luma.
+- `/thanks/booked`, `/thanks/webinar` (noindex), κάθε conversion μία φορά.
+- `LeadMagnetPopup` ανενεργό. `lib/utm.ts`, `scroll_75`, `docs/tracking-plan.md`.
 
-**Βήμα 6. Proof, about, legal**
-- `/case-studies`, `/case-studies/:slug` (index + 2 πρώτα).
-- `/about`, `/privacy` (νέο URL), `/cookies`.
+**Βήμα 6. Proof, about, legal** ✅ 6/10
+- `/case-studies` + 2 σελίδες, `/about`, `/privacy` (προσχέδιο), `/cookies` (πίνακας CookieYes).
 
-**Βήμα 7. SEO, performance, QA**
-- `Seo` ανά σελίδα, JSON-LD `Person`, `ProfessionalService`, `FAQPage`, `sitemap.xml`, `robots.txt`, `llms.txt`, στατικά OG images.
-- Έλεγχος prerender: κάθε route έχει δικό του `<title>`, OG tags και περιεχόμενο στο στατικό HTML (LinkedIn Post Inspector).
-- Fonts με `<link rel="preload">` αντί `@import` (στο `index.html`, εκτός GTM block).
-- Lighthouse mobile 95+ σε `/`, `/book`, `/webinar`.
-- Tests: track helper, όλα τα CTA καταλήγουν σε `/book`, το `/book` έχει το σωστό Calendly URL.
-- Script που αποτυγχάνει αν βρει `[CONFIRM` στο `src/content` κατά το production build.
+**Βήμα 7. SEO, performance, QA** ✅ 6/10
+- `sitemap.xml` και `404.html` παράγονται στο build. OG images ανά σελίδα. Security headers. `robots.txt`, `llms.txt`.
+- Inter self-hosted (το Google Fonts καθυστερούσε το LCP κατά 3.5 s).
+- Lighthouse mobile (τοπικά, με GTM): `/` 98, `/webinar` 95, `/book` 94. Accessibility 100, SEO 100 παντού.
+- QA σε browser: όλες οι σελίδες, κινητό και desktop, χωρίς οριζόντιο scroll, χωρίς σφάλματα hydration, ροή κράτησης, UTM, anchors, accordion με πληκτρολόγιο.
+- CI (GitHub Actions): lint, typecheck, tests, build, έλεγχος `[CONFIRM` (μπλοκάρει μόνο το `main`).
+- Χωρίς Playwright smoke test στο repo (θα άλλαζε το lockfile). Οι έλεγχοι browser έγιναν με το Playwright του περιβάλλοντος.
 
 **Βήμα 8. Launch (με τον Dimitris, όχι από εμένα)**
 - Σύνδεση repo στο Vercel, έλεγχος redirects στο preview, canonical domain, DNS.

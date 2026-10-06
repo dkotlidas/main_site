@@ -27,7 +27,7 @@ Hosting: Vercel. Τα server redirects μπαίνουν στο `vercel.json` μ�
 
 ## 2. Anchors της αρχικής (client side)
 
-Τα hashes δεν φτάνουν ποτέ στον server, οπότε δεν γίνεται 301. Τα χειρίζεται ένα μικρό script στην αρχική. Μετράνε γιατί παλιά links σε LinkedIn, email και Calendly μπορεί να δείχνουν σε `/#contact`.
+Τα hashes δεν φτάνουν ποτέ στον server, οπότε δεν γίνεται 301. **Υλοποιήθηκε 6/10:** `legacyAnchors` στο `src/content/home.ts`, εκτελείται στο `src/pages/Index.tsx`. Μετράνε γιατί παλιά links σε LinkedIn, email και Calendly μπορεί να δείχνουν σε `/#contact`.
 
 | Παλιό | Νέο | Τρόπος |
 | --- | --- | --- |
@@ -49,14 +49,14 @@ Hosting: Vercel. Τα server redirects μπαίνουν στο `vercel.json` μ�
 
 ## 4. Νέα URLs (δεν χρειάζονται redirect)
 
-`/book`, `/webinar`, `/thanks/booked`, `/thanks/webinar`, `/case-studies`, `/case-studies/:slug`, `/about`, `/privacy`, `/cookies`.
+`/book`, `/webinar`, `/thanks/booked`, `/thanks/webinar`, `/case-studies`, `/case-studies/kitchenware-ecommerce`, `/case-studies/b2b-lead-generation`, `/about`, `/privacy`, `/cookies`. Άγνωστα URLs: `404.html` (παράγεται στο build).
 
 Το `/free-course` βγήκε από τη Phase 1 (απόφαση 6/10) και δεν υπήρξε ποτέ, οπότε δεν χρειάζεται redirect.
 
 ## 5. Έλεγχος πριν από το launch
 
 - [ ] Κάθε γραμμή του §1 επιστρέφει 301 στο Vercel preview (`curl -I`).
-- [ ] Κάθε anchor του §2 καταλήγει στη σωστή σελίδα.
-- [ ] Το `sitemap.xml` έχει μόνο νέα URLs.
-- [ ] Το `robots.txt` δεν αναφέρει πια `/admin`.
+- [x] Κάθε anchor του §2 καταλήγει στη σωστή σελίδα (ελέγχθηκε `/#contact` → `/book` σε browser 6/10).
+- [x] Το `sitemap.xml` έχει μόνο νέα URLs (παράγεται στο build, χωρίς thanks και 404).
+- [x] Το `robots.txt` δεν αναφέρει πια `/admin` (μπλοκάρει μόνο το `/thanks/`).
 - [ ] Search Console: υποβολή νέου sitemap, έλεγχος coverage μία εβδομάδα μετά.

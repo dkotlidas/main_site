@@ -15,7 +15,7 @@
 | Θέμα | BRIEF.md | CLAUDE.md | Απόφαση στο πλάνο |
 | --- | --- | --- | --- |
 | Stack | Next.js App Router, Vercel, `next/image`, `next/og`, `next.config` redirects | Vite, React, TS, Tailwind, shadcn/ui | **Μένουμε σε Vite + React Router.** Τα αντίστοιχα: `react-helmet-async` για metadata, στατικά OG images, redirects στο hosting (βλ. §6) |
-| Φόρμα leads / `/api/subscribe` | Φόρμα email για το 5 email course, API route, adapter provider | "Δεν υπάρχει φόρμα leads" | **Καμία δική μας φόρμα, κανένα API.** Το `/free-course` και το lead magnet block στέλνουν σε hosted signup του email provider (link), μόλις αποφασιστεί ο provider. Μέχρι τότε: `[CONFIRM]` και fallback CTA σε Calendly |
+| Φόρμα leads / `/api/subscribe` | Φόρμα email για το 5 email course, API route, adapter provider | "Δεν υπάρχει φόρμα leads" | **Αποφασίστηκε (6/10):** το 5 email course και το `/free-course` βγαίνουν από τη Phase 1. Στη θέση τους μπαίνει ένα **απλό popup με lead magnet** για list building (βλ. §7b). Δεν υπάρχει ακόμη email provider, οπότε το πού καταλήγουν τα emails είναι ανοιχτό (§9, ερώτηση 2). Το CLAUDE.md λέει "Δεν υπάρχει φόρμα leads", άρα χρειάζεται ενημέρωση από τον Dimitris |
 | Supabase / Notion | Δεν αναφέρεται | Δεν χρησιμοποιούμε, επιτρέπεται η αφαίρεση | **Αφαιρείται** (βλ. §3) |
 | Branch | `rebuild` | - (session: `redesign`) | Δουλεύουμε στο `redesign` |
 | Περιεχόμενο σε MDX | MDX για case studies | Καμία νέα βιβλιοθήκη χωρίς αιτιολόγηση | **TypeScript content files** (`src/content/*.ts`). Μηδέν νέες εξαρτήσεις, ίδιο αποτέλεσμα για 2 έως 3 case studies |
@@ -161,7 +161,7 @@ src/
     faq.ts                     # objections + practical
     case-studies.ts            # slug, client type, goal, approach, 3 numbers
     webinars.json              # επόμενο webinar, past recordings
-    free-course.ts             # τίτλοι 5 emails [CONFIRM]
+    lead-magnet.ts             # τίτλος, περιγραφή, αρχείο lead magnet, κανόνες εμφάνισης popup [CONFIRM]
   lib/
     utils.ts
     track.ts                   # typed dataLayer helper
@@ -183,6 +183,7 @@ src/
     StatStrip.tsx
     CaseStudyCard.tsx
     ConsentBanner.tsx
+    LeadMagnetPopup.tsx        # shadcn Dialog + Input + Button
     home/
       Hero.tsx
       Problem.tsx
@@ -191,15 +192,15 @@ src/
       HowItWorks.tsx
       Proof.tsx
       Objections.tsx
-      LeadMagnetBlock.tsx
+      (χωρίς LeadMagnetBlock: το lead magnet ζει μόνο στο popup)
       WebinarBlock.tsx
       FinalCta.tsx
   pages/
     Index.tsx                  # /
     Book.tsx                   # /book
     Webinar.tsx                # /webinar
-    FreeCourse.tsx             # /free-course
-    Thanks.tsx                 # /thanks/:type (booked | webinar | course)
+    (FreeCourse.tsx: εκτός Phase 1)
+    Thanks.tsx                 # /thanks/:type (booked | webinar)
     CaseStudies.tsx            # /case-studies
     CaseStudy.tsx              # /case-studies/:slug
     About.tsx                  # /about
@@ -240,15 +241,27 @@ Canonical domain (`.com` ή `.gr`): `[CONFIRM]`. Προτείνω `dkotlidas.com
 
 ## 7. Tracking (χωρίς αλλαγή στα GTM snippets)
 
-- `src/lib/track.ts`: `track(event, params)` που κάνει `window.dataLayer.push`. Typed union για: `cta_click` (cta_id, location), `book_call_view`, `call_booked`, `webinar_register_click`, `webinar_registered`, `course_signup`, `case_study_view`, `scroll_75`, `outbound_linkedin`.
+- `src/lib/track.ts`: `track(event, params)` που κάνει `window.dataLayer.push`. Typed union για: `cta_click` (cta_id, location), `book_call_view`, `call_booked`, `webinar_register_click`, `webinar_registered`, `lead_magnet_view`, `lead_magnet_signup`, `case_study_view`, `scroll_75`, `outbound_linkedin`.
 - `call_booked`: από το Calendly `postMessage` `calendly.event_scheduled` στο `CalendlyEmbed`.
-- `course_signup` και `webinar_registered`: χωρίς δική μας φόρμα δεν τα βλέπουμε στο site. Πυροδοτούνται στο `/thanks/course` και `/thanks/webinar`, αν ο provider και το Luma κάνουν redirect εκεί μετά την εγγραφή. `[CONFIRM]`
+- `webinar_registered`: πυροδοτείται στο `/thanks/webinar`, αν το Luma κάνει redirect εκεί μετά την εγγραφή. `[CONFIRM]`
+- `lead_magnet_view` όταν ανοίγει το popup, `lead_magnet_signup` όταν το email γίνει δεκτό από τον provider.
 - UTM: αποθήκευση στην πρώτη σελίδα, προσθήκη ως `utm_*` στο Calendly URL (το Calendly τα δέχεται και τα δείχνει στο booking).
 - Consent Mode v2: το default `denied` πρέπει να τρέξει **πριν** το GTM. Δύο δρόμοι:
   1. CMP template μέσα στο GTM (π.χ. Cookiebot ή Consent Mode template). Μηδέν αλλαγή στο `index.html`. **Προτείνεται.**
   2. Ξεχωριστό `<script>` πάνω από το GTM snippet στο `index.html`. Δεν αλλάζει το snippet, αλλά αγγίζει το σημείο. Θέλει ρητή έγκριση.
   Το `ConsentBanner` στέλνει `gtag('consent','update',...)` και στις δύο περιπτώσεις.
 - GA4 και Meta Pixel μένουν μέσα στο GTM. Το spec γράφεται στο `docs/tracking-plan.md`.
+
+## 7b. Lead magnet popup (απόφαση 6/10)
+
+- Component `LeadMagnetPopup` με shadcn `Dialog`, `Input`, `Label`, `Button`. Χωρίς νέα βιβλιοθήκη.
+- Περιεχόμενο από `src/content/lead-magnet.ts`: τίτλος, 2 γραμμές περιγραφή, κουμπί, γραμμή privacy. Όλα `[CONFIRM]` μέχρι να υπάρχει το lead magnet.
+- Πότε εμφανίζεται (προτεινόμενο default): μία φορά ανά επισκέπτη, μετά από 50% scroll ή exit intent σε desktop, ποτέ πριν από 20 δευτερόλεπτα. Ποτέ στα `/book`, `/thanks/*`, `/privacy`, `/cookies`. Ποτέ πάνω από το consent banner. Το κλείσιμο θυμάται για 30 ημέρες (`localStorage`).
+- Το popup δεν κρύβει το βασικό CTA: η κλήση μένει η κύρια μετατροπή, το popup είναι για όσους δεν είναι έτοιμοι.
+- Mobile: χωρίς exit intent, εμφάνιση μόνο με scroll, πλήρες κλείσιμο με ένα tap. Google τιμωρεί intrusive interstitials σε mobile, οπότε δεν ανοίγει στην πρώτη οθόνη.
+- Accessibility: focus trap και Esc από το Radix Dialog, label στο πεδίο email.
+- Validation με `zod` (υπάρχει ήδη), honeypot πεδίο.
+- **Προορισμός emails: ανοιχτό.** Χωρίς provider δεν υπάρχει πού να αποθηκευτούν, και δεν χρησιμοποιούμε Supabase ή Notion. Μέχρι να αποφασιστεί, το popup χτίζεται αλλά μένει ανενεργό.
 
 ---
 
@@ -275,14 +288,14 @@ Canonical domain (`.com` ή `.gr`): `[CONFIRM]`. Προτείνω `dkotlidas.com
 - **Στάση: δείχνω στον Dimitris την πρώτη οθόνη (header + hero, mobile και desktop) για έγκριση** (BRIEF §7).
 
 **Βήμα 4. Landing page `/`**
-- Sections με τη σειρά του BRIEF §5.2 έως §5.11, copy από `src/content/home.ts`, `faq.ts`, `case-studies.ts`.
+- Sections με τη σειρά του BRIEF §5.2 έως §5.11 (χωρίς το §5.9, που γίνεται popup), copy από `src/content/home.ts`, `faq.ts`, `case-studies.ts`.
 - Κάθε CTA κλήσης πάει σε `/book`. Mobile first.
 - Αφαίρεση των παλιών sections μόλις αντικατασταθούν.
 
 **Βήμα 5. Conversion pages**
 - `/book` με `CalendlyEmbed` (ίδιο URL), `call_booked`, redirect `/thanks/booked`.
 - `/webinar` και `WebinarBlock` από `webinars.json`, `LumaEmbed`, fallback "Next date announced soon".
-- `/free-course` χωρίς δική μας φόρμα (§0). Link σε hosted signup ή fallback σε `/book`.
+- `LeadMagnetPopup` (§7b). Μένει ανενεργό (`enabled: false` στο `lead-magnet.ts`) μέχρι να υπάρχουν lead magnet και προορισμός για τα emails.
 - `/thanks/:type`, `lib/track.ts`, `lib/utm.ts`, `ConsentBanner`, `docs/tracking-plan.md`.
 
 **Βήμα 6. Proof, about, legal**
@@ -309,7 +322,7 @@ Canonical domain (`.com` ή `.gr`): `[CONFIRM]`. Προτείνω `dkotlidas.com
 ## 9. Αποφάσεις που χρειάζομαι (μία τη φορά, με προτεινόμενο default)
 
 1. ~~**Διάρκεια κλήσης**~~ **Αποφασίστηκε:** 15', ίδιο URL. Το copy γράφει "Book a 15 min call".
-2. **Email course χωρίς φόρμα:** link σε hosted signup page του provider; Default: ναι, και μέχρι να επιλεγεί provider το block δείχνει το Calendly CTA.
+2. ~~**Email course**~~ **Αποφασίστηκε:** το course βγαίνει από τη Phase 1, μπαίνει popup με lead magnet. **Ανοιχτό: πού πηγαίνουν τα emails** χωρίς provider (βλ. §7b).
 3. **Hosting για redirects:** Default: Netlify ή Vercel (δωρεάν tier, υποστηρίζουν 301 και preview deploys). Το Lovable δεν κάνει 301.
 4. **Consent Mode:** Default: CMP template μέσα στο GTM, χωρίς αλλαγή στο `index.html`.
 5. **`@supabase/supabase-js` και `package-lock.json`:** Default: αφαιρώ τον κώδικα τώρα, το package το αφαιρείς εσύ ή μου δίνεις ρητή άδεια.

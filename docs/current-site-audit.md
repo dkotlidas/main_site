@@ -23,7 +23,7 @@ Phase 0 του BRIEF.md (§9). Καταγραφή του site όπως ήταν 
 | --- | --- |
 | `npm run build` | Περνάει |
 | `npm test` | 1/1 περνάει |
-| `npm run lint` | 3 errors, 7 warnings (βλ. §8) |
+| `npm run lint` | 0 errors, 7 warnings (shadcn fast refresh). Τα 3 errors διορθώθηκαν 6/10 |
 
 ## 2. Routes
 
@@ -100,9 +100,9 @@ Anchors της αρχικής που χρησιμοποιούνται στο nav
 
 ## 8. Τεχνικά θέματα
 
-- **Lint errors:** `src/components/ui/command.tsx:24` και `src/components/ui/textarea.tsx:5` (empty interface), `tailwind.config.ts:162` (`require()`).
-- **`package-lock.json` εκτός συγχρονισμού:** του λείπουν πακέτα που χρησιμοποιούνται (π.χ. `react-helmet-async`). Το `npm ci` πιθανότατα αποτυγχάνει. Χρειάζεται ένα `npm install` που το ξαναγράφει, με έγκριση Dimitris, πριν από το πρώτο deploy στο Vercel.
-- **`.env` committed:** περιέχει μόνο `VITE_SUPABASE_*`, που δεν χρησιμοποιούνται πια. Να βγει από το git και να μπει `.env.example`. Προτείνεται διαγραφή του Supabase project (`ppuzojwnushynbnfqvxt`).
+- **Lint errors (διορθώθηκαν 6/10):** `src/components/ui/command.tsx:24` και `src/components/ui/textarea.tsx:5` (empty interface), `tailwind.config.ts:162` (`require()`).
+- **`package-lock.json` εκτός συγχρονισμού:** του έλειπε το `react-helmet-async` και το `npm ci` αποτύγχανε. **Διορθώθηκε 6/10** με `npm install` (έγκριση Dimitris).
+- **`.env` committed (βγήκε από το git 6/10, παραμένει στο history):** περιέχει μόνο `VITE_SUPABASE_*`, που δεν χρησιμοποιούνται πια. Να βγει από το git και να μπει `.env.example`. Προτείνεται διαγραφή του Supabase project (`ppuzojwnushynbnfqvxt`).
 - **Privacy policy:** αναφέρει "contact form" και newsletter που δεν υπάρχουν, και controller "Dimitrios Kotlidas, Strasbourg" χωρίς την επιχειρηματική οντότητα.
 - **Όνομα:** το site γράφει "Dimitrios", το BRIEF ζητά "Dimitris" για να ταιριάζει με το LinkedIn. Στο `CONTENT-TODO.md`.
 
@@ -119,3 +119,4 @@ Anchors της αρχικής που χρησιμοποιούνται στο nav
 | 6/10 | `PLAN.md` |
 | 6/10 | Αφαίρεση Supabase (`supabase/`, `src/integrations/supabase/`, admin σελίδες, package). Από το `package-lock.json` βγήκαν μόνο οι εγγραφές του Supabase |
 | 6/10 | `CLAUDE.md`: lead magnet popup, Meta pixel μέσω GTM |
+| 6/10 | `.env` εκτός git, `.env.example`, 0 lint errors, `robots.txt` χωρίς `/admin`, νέο `package-lock.json` |

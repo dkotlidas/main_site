@@ -271,11 +271,14 @@ Canonical domain (`.com` ή `.gr`): `[CONFIRM]`. Προτείνω `dkotlidas.com
 - `docs/CONTENT-TODO.md` με όλα τα `[CONFIRM]` του BRIEF §11 και του §1.7.
 - `docs/redirects.md` από το §6.
 
-**Βήμα 2. Καθαρισμός**
+**Βήμα 2. Καθαρισμός** ✅ 6/10
 - Αφαίρεση `Admin`, `AdminLogin`, admin routes, `src/integrations/supabase`, `supabase/`. ✅ 6/10
-- `.env` εκτός git, `.env.example`, `.gitignore`.
-- `npm run build` και `npm run lint`. Διόρθωση των 3 υπαρχόντων lint errors.
-- Απόφαση για `@supabase/supabase-js` στο `package.json` (§3).
+- `.env` εκτός git, `.env.example`, `.gitignore`. ✅ 6/10
+- `npm run build` και `npm run lint`. Διόρθωση των 3 υπαρχόντων lint errors. ✅ 6/10 (0 errors, 7 shadcn warnings)
+- `robots.txt` χωρίς `/admin`. ✅ 6/10
+- `package-lock.json` ξαναγράφτηκε με `npm install` (άδεια Dimitris), `npm ci` περνάει. ✅ 6/10
+- Στο `vercel.json`: `"installCommand": "npm ci"`, ώστε το Vercel να μη διαλέξει bun λόγω των `bun.lock`/`bun.lockb`, που δεν αγγίζουμε.
+- Απόφαση για `@supabase/supabase-js` στο `package.json` (§3). ✅ 6/10
 
 **Βήμα 3. Foundation**
 - Tokens, Inter, typography scale, dark mode στο `index.css` / `tailwind.config.ts`.

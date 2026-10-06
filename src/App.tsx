@@ -1,33 +1,29 @@
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { lazy, Suspense } from "react";
-import Index from "./pages/Index";
+import type { RouteRecord } from "vite-react-ssg";
+import Layout from "@/components/layout/Layout";
+import Index from "@/pages/Index";
 
-const NotFound = lazy(() => import("./pages/NotFound"));
-const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
-
-const queryClient = new QueryClient();
-
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Suspense fallback={<div className="min-h-screen bg-background" />}>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Suspense>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
-
-export default App;
+// Every route listed here is prerendered to static HTML by vite-react-ssg.
+// URL changes need a 301 in vercel.json (see docs/redirects.md).
+export const routes: RouteRecord[] = [
+  {
+    path: "/",
+    element: <Layout />,
+    entry: "src/components/layout/Layout.tsx",
+    children: [
+      { index: true, element: <Index /> },
+      {
+        path: "book",
+        lazy: async () => ({ Component: (await import("@/pages/Book")).default }),
+      },
+      {
+        // Was /privacy-policy; 301 in vercel.json
+        path: "privacy",
+        lazy: async () => ({ Component: (await import("@/pages/PrivacyPolicy")).default }),
+      },
+      {
+        path: "*",
+        lazy: async () => ({ Component: (await import("@/pages/NotFound")).default }),
+      },
+    ],
+  },
+];

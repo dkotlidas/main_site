@@ -280,13 +280,24 @@ Canonical domain (`.com` ή `.gr`): `[CONFIRM]`. Προτείνω `dkotlidas.com
 - Στο `vercel.json`: `"installCommand": "npm ci"`, ώστε το Vercel να μη διαλέξει bun λόγω των `bun.lock`/`bun.lockb`, που δεν αγγίζουμε.
 - Απόφαση για `@supabase/supabase-js` στο `package.json` (§3). ✅ 6/10
 
-**Βήμα 3. Foundation**
-- Tokens, Inter, typography scale, dark mode στο `index.css` / `tailwind.config.ts`.
-- `src/content/site.ts` με Calendly URL, links, nav, stats.
-- `vite-react-ssg`: routes ως array, `main.tsx` με `ViteReactSSG`, build script `vite-react-ssg build`. Έλεγχος ότι το `dist/` έχει ένα HTML ανά route και τα GTM snippets αυτούσια.
-- Layout route, `SiteHeader`, `SiteFooter`, `Section`, `Seo`, `BookCallButton`.
-- Βελτιστοποιημένο portrait.
+**Βήμα 3. Foundation** ✅ 6/10, περιμένει έγκριση της πρώτης οθόνης
+- Tokens, Inter, typography scale, dark mode στο `index.css` / `tailwind.config.ts`. ✅
+  - Τα tokens του BRIEF αντιστοιχούν σε ονόματα του shadcn: `--bg`→`--background`, `--fg`→`--foreground`, `--muted`→`--muted-foreground`, `--border`→`--border`, `--accent`→`--primary`. Το shadcn χρησιμοποιεί ήδη τα `--muted`/`--accent` για επιφάνειες και hover.
+  - Accent: `#1d4ed8` (light), `#60a5fa` (dark). Όλοι οι συνδυασμοί κειμένου περνούν AA (ελάχιστο 6.6:1).
+- `src/content/site.ts`, `home.ts`, `book.ts`. ✅
+- `vite-react-ssg@0.9.0` (η 0.9.2 θέλει Vite 6), `dirStyle: nested`. Ένα HTML ανά route, GTM αυτούσιο στο output. ✅
+  - Το `npm run dev` μένει απλό `vite` (χωρίς SSR στο dev). Το `npm run build` κάνει prerender.
+- Layout route, `SiteHeader`, `SiteFooter`, `Section`, `Seo`, `BookCallButton`, `lib/track.ts`. ✅
+- Portrait: WebP 480/960 px (19 KB / 52 KB αντί 2.5 MB) στο `public/images/`, ένα responsive preload. ✅
+- Νωρίτερα από το πλάνο, ώστε κάθε CTA να δουλεύει: βασικό `/book` με Calendly (ίδιο URL), `/privacy` (νέο URL), `vercel.json` με 301 και `npm ci`. ✅
+- Tests: Calendly URL αμετάβλητο, κάθε CTA κράτησης πάει στο `/book` και στέλνει `cta_click`. ✅
 - **Στάση: δείχνω στον Dimitris την πρώτη οθόνη (header + hero, mobile και desktop) για έγκριση** (BRIEF §7).
+
+Ανοιχτά από το Βήμα 3 (για τα επόμενα βήματα):
+- Δεν υπάρχει `404.html` στο build. Το Vercel θα δείχνει τη δική του 404 μέχρι το Βήμα 7.
+- Χωρίς `og:image` μέχρι τα στατικά OG images του Βήματος 7 (η παλιά εικόνα ήταν screenshot του Lovable).
+- Αχρησιμοποίητα πακέτα μετά τον καθαρισμό: `react-helmet-async` (το vite-react-ssg έχει δικό του), `framer-motion`, `@tanstack/react-query`. Αφαίρεση θέλει αλλαγή στο lockfile, άρα έγκριση.
+- Το `src/components/CaseStudies.tsx` και `About.tsx` μένουν ως πρώτη ύλη για τα Βήματα 4 και 6.
 
 **Βήμα 4. Landing page `/`**
 - Sections με τη σειρά του BRIEF §5.2 έως §5.11 (χωρίς το §5.9, που γίνεται popup), copy από `src/content/home.ts`, `faq.ts`, `case-studies.ts`.
@@ -330,4 +341,4 @@ Canonical domain (`.com` ή `.gr`): `[CONFIRM]`. Προτείνω `dkotlidas.com
 6. ~~**Prerender**~~ **Αποφασίστηκε (6/10):** ναι, με `vite-react-ssg` ως νέα dependency (λόγος: LinkedIn previews και SEO ανά σελίδα). Μπαίνει στο Βήμα 3 (foundation), ώστε όλες οι σελίδες να χτιστούν από την αρχή με αυτό. Το `index.html` μένει το template, άρα τα GTM snippets δεν αλλάζουν. Η εγκατάσταση θα αλλάξει το `package-lock.json` μόνο για αυτό το package.
 7. ~~**Meta pixel**~~ **Επιβεβαιώθηκε (6/10):** φορτώνει από το GTM. Το CLAUDE.md διορθώθηκε.
 
-Όλες οι αποφάσεις του §9 έχουν κλείσει. Επόμενο: Βήμα 1 του §8.
+Όλες οι αποφάσεις του §9 έχουν κλείσει.

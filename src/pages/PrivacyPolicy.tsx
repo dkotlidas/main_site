@@ -1,19 +1,11 @@
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import Seo from "@/components/layout/Seo";
 import { ArrowLeft } from "lucide-react";
 
 const PrivacyPolicy = () => {
   return (
-    <main className="min-h-screen bg-background text-foreground">
-      <Helmet>
-        <title>Privacy Policy | Dimitrios Kotlidas</title>
-        <meta name="description" content="How Dimitrios Kotlidas collects, uses, and safeguards your personal data in compliance with GDPR." />
-        <link rel="canonical" href="https://dkotlidas.com/privacy-policy" />
-        <meta name="robots" content="index,follow" />
-        <meta property="og:title" content="Privacy Policy | Dimitrios Kotlidas" />
-        <meta property="og:description" content="GDPR-compliant privacy policy for dkotlidas.com." />
-        <meta property="og:url" content="https://dkotlidas.com/privacy-policy" />
-      </Helmet>
+    <div className="bg-background text-foreground">
+      <Seo title="Privacy Policy" description="How personal data is collected, used and protected on dkotlidas.com, in line with GDPR." path="/privacy" />
       <div className="container mx-auto max-w-3xl px-4 py-16">
         <Link
           to="/"
@@ -27,7 +19,7 @@ const PrivacyPolicy = () => {
         </h1>
 
         <div className="prose prose-lg max-w-none space-y-6 text-muted-foreground font-body leading-relaxed">
-          <p className="text-sm">Last updated: {new Date().toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}</p>
+          <p className="text-sm">Last updated: [CONFIRM: date]</p>
 
           <h2 className="text-2xl font-heading font-bold text-foreground mt-10">1. Introduction</h2>
           <p>
@@ -102,7 +94,7 @@ const PrivacyPolicy = () => {
           </p>
         </div>
       </div>
-    </main>
+    </div>
   );
 };
 

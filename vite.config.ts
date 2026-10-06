@@ -13,6 +13,13 @@ export default defineConfig(({ mode }) => ({
     },
   },
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
+  ssgOptions: {
+    entry: "src/main.tsx",
+    // /book -> /book/index.html, served as /book on any static host
+    dirStyle: "nested",
+    // Critical CSS inlining needs an extra package; not used
+    beastiesOptions: false,
+  },
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),

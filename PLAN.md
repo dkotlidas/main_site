@@ -19,7 +19,7 @@
 | Supabase / Notion | Δεν αναφέρεται | Δεν χρησιμοποιούμε, επιτρέπεται η αφαίρεση | **Αφαιρείται** (βλ. §3) |
 | Branch | `rebuild` | - (session: `redesign`) | Δουλεύουμε στο `redesign` |
 | Περιεχόμενο σε MDX | MDX για case studies | Καμία νέα βιβλιοθήκη χωρίς αιτιολόγηση | **TypeScript content files** (`src/content/*.ts`). Μηδέν νέες εξαρτήσεις, ίδιο αποτέλεσμα για 2 έως 3 case studies |
-| Διάρκεια κλήσης | 15 λεπτά | Ίδιο Calendly link | Το link μένει `https://calendly.com/dkotlidas-vrwr/free-strategy-call`. Το event σήμερα λέγεται "Free 30min Call" στο site. **Ο Dimitris αλλάζει τη διάρκεια στο Calendly σε 15'** (ίδιο URL) ή κρατάμε 30' στο copy. `[CONFIRM]` |
+| Διάρκεια κλήσης | 15 λεπτά | Ίδιο Calendly link | **Αποφασίστηκε (6/10):** ο Dimitris άλλαξε το event σε 15' με το ίδιο URL `https://calendly.com/dkotlidas-vrwr/free-strategy-call`. Όλο το copy γράφει "15 min" |
 
 ---
 
@@ -308,7 +308,7 @@ Canonical domain (`.com` ή `.gr`): `[CONFIRM]`. Προτείνω `dkotlidas.com
 
 ## 9. Αποφάσεις που χρειάζομαι (μία τη φορά, με προτεινόμενο default)
 
-1. **Διάρκεια κλήσης:** αλλάζεις το Calendly event σε 15' με το ίδιο URL; Default: ναι, και το copy γράφει "15 min".
+1. ~~**Διάρκεια κλήσης**~~ **Αποφασίστηκε:** 15', ίδιο URL. Το copy γράφει "Book a 15 min call".
 2. **Email course χωρίς φόρμα:** link σε hosted signup page του provider; Default: ναι, και μέχρι να επιλεγεί provider το block δείχνει το Calendly CTA.
 3. **Hosting για redirects:** Default: Netlify ή Vercel (δωρεάν tier, υποστηρίζουν 301 και preview deploys). Το Lovable δεν κάνει 301.
 4. **Consent Mode:** Default: CMP template μέσα στο GTM, χωρίς αλλαγή στο `index.html`.

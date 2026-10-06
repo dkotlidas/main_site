@@ -55,7 +55,7 @@ Positioning σήμερα: γενικός freelancer για e-commerce και lea
 - **GTM:** `GTM-NTSC726P` στο `index.html` (head + noscript). Δεν αγγίζεται.
 - **Meta pixel:** το CLAUDE.md αναφέρει snippet στο `index.html`, αλλά **δεν βρέθηκε** στο αρχείο. Πιθανότατα φορτώνει μέσα από το GTM. `[CONFIRM]`
 - Google Search Console verification meta tag στο `index.html`.
-- Δεν υπάρχει consent banner.
+- Consent banner: **CookieYes, φορτώνει μέσα από το GTM** (επιβεβαίωση Dimitris 6/10). Δεν υπάρχει στον κώδικα.
 
 ### 1.5 Supabase / Notion
 - `src/integrations/supabase/client.ts`, `types.ts`: χρησιμοποιούνται μόνο από `Admin.tsx` και `AdminLogin.tsx`.
@@ -166,7 +166,6 @@ src/
     utils.ts
     track.ts                   # typed dataLayer helper
     utm.ts                     # διατήρηση UTM σε sessionStorage, προσθήκη σε Calendly/Luma links
-    consent.ts                 # Consent Mode v2 update
   hooks/
     useScrollFade.ts           # με prefers-reduced-motion
     use-mobile.tsx, use-toast.ts
@@ -182,7 +181,6 @@ src/
     LumaEmbed.tsx
     StatStrip.tsx
     CaseStudyCard.tsx
-    ConsentBanner.tsx
     LeadMagnetPopup.tsx        # shadcn Dialog + Input + Button
     home/
       Hero.tsx
@@ -246,17 +244,17 @@ Canonical domain (`.com` ή `.gr`): `[CONFIRM]`. Προτείνω `dkotlidas.com
 - `webinar_registered`: πυροδοτείται στο `/thanks/webinar`, αν το Luma κάνει redirect εκεί μετά την εγγραφή. `[CONFIRM]`
 - `lead_magnet_view` όταν ανοίγει το popup, `lead_magnet_signup` όταν το email γίνει δεκτό από τον provider.
 - UTM: αποθήκευση στην πρώτη σελίδα, προσθήκη ως `utm_*` στο Calendly URL (το Calendly τα δέχεται και τα δείχνει στο booking).
-- Consent Mode v2: το default `denied` πρέπει να τρέξει **πριν** το GTM. Δύο δρόμοι:
-  1. CMP template μέσα στο GTM (π.χ. Cookiebot ή Consent Mode template). Μηδέν αλλαγή στο `index.html`. **Προτείνεται.**
-  2. Ξεχωριστό `<script>` πάνω από το GTM snippet στο `index.html`. Δεν αλλάζει το snippet, αλλά αγγίζει το σημείο. Θέλει ρητή έγκριση.
-  Το `ConsentBanner` στέλνει `gtag('consent','update',...)` και στις δύο περιπτώσεις.
+- Consent Mode v2: **το χειρίζεται το CookieYes μέσα στο GTM** (απόφαση 6/10). Κανένα consent component στον κώδικα, καμία αλλαγή στο `index.html`.
+  - Έλεγχος στη Phase 7: το CookieYes template ορίζει default `denied` για EU, UK, CH πριν από κάθε άλλο tag, και τα GA4/Meta tags έχουν consent checks.
+  - Τα events του `track.ts` γράφονται πάντα στο dataLayer. Το αν θα φύγουν προς GA4/Meta το αποφασίζει το GTM με βάση το consent.
+  - Ο σύνδεσμος "Cookie settings" στο footer ανοίγει ξανά το CookieYes banner (`revisitCkyConsent()`, αν το API είναι διαθέσιμο).
 - GA4 και Meta Pixel μένουν μέσα στο GTM. Το spec γράφεται στο `docs/tracking-plan.md`.
 
 ## 7b. Lead magnet popup (απόφαση 6/10)
 
 - Component `LeadMagnetPopup` με shadcn `Dialog`, `Input`, `Label`, `Button`. Χωρίς νέα βιβλιοθήκη.
 - Περιεχόμενο από `src/content/lead-magnet.ts`: τίτλος, 2 γραμμές περιγραφή, κουμπί, γραμμή privacy. Όλα `[CONFIRM]` μέχρι να υπάρχει το lead magnet.
-- Πότε εμφανίζεται (προτεινόμενο default): μία φορά ανά επισκέπτη, μετά από 50% scroll ή exit intent σε desktop, ποτέ πριν από 20 δευτερόλεπτα. Ποτέ στα `/book`, `/thanks/*`, `/privacy`, `/cookies`. Ποτέ πάνω από το consent banner. Το κλείσιμο θυμάται για 30 ημέρες (`localStorage`).
+- Πότε εμφανίζεται (προτεινόμενο default): μία φορά ανά επισκέπτη, μετά από 50% scroll ή exit intent σε desktop, ποτέ πριν από 20 δευτερόλεπτα. Ποτέ στα `/book`, `/thanks/*`, `/privacy`, `/cookies`. Ποτέ όσο είναι ανοιχτό το CookieYes banner (ανοίγει μόνο αφού ο επισκέπτης απαντήσει στο consent). Το κλείσιμο θυμάται για 30 ημέρες (`localStorage`).
 - Το popup δεν κρύβει το βασικό CTA: η κλήση μένει η κύρια μετατροπή, το popup είναι για όσους δεν είναι έτοιμοι.
 - Mobile: χωρίς exit intent, εμφάνιση μόνο με scroll, πλήρες κλείσιμο με ένα tap. Google τιμωρεί intrusive interstitials σε mobile, οπότε δεν ανοίγει στην πρώτη οθόνη.
 - Accessibility: focus trap και Esc από το Radix Dialog, label στο πεδίο email.
@@ -296,7 +294,7 @@ Canonical domain (`.com` ή `.gr`): `[CONFIRM]`. Προτείνω `dkotlidas.com
 - `/book` με `CalendlyEmbed` (ίδιο URL), `call_booked`, redirect `/thanks/booked`.
 - `/webinar` και `WebinarBlock` από `webinars.json`, `LumaEmbed`, fallback "Next date announced soon".
 - `LeadMagnetPopup` (§7b). Μένει ανενεργό (`enabled: false` στο `lead-magnet.ts`) μέχρι να υπάρχουν lead magnet και προορισμός για τα emails.
-- `/thanks/:type`, `lib/track.ts`, `lib/utm.ts`, `ConsentBanner`, `docs/tracking-plan.md`.
+- `/thanks/:type`, `lib/track.ts`, `lib/utm.ts`, `docs/tracking-plan.md`.
 
 **Βήμα 6. Proof, about, legal**
 - `/case-studies`, `/case-studies/:slug` (index + 2 πρώτα).
@@ -324,7 +322,7 @@ Canonical domain (`.com` ή `.gr`): `[CONFIRM]`. Προτείνω `dkotlidas.com
 1. ~~**Διάρκεια κλήσης**~~ **Αποφασίστηκε:** 15', ίδιο URL. Το copy γράφει "Book a 15 min call".
 2. ~~**Email course / προορισμός emails**~~ **Αποφασίστηκε:** popup με lead magnet, χτίζεται τώρα και μένει ανενεργό (`enabled: false`) μέχρι να υπάρχουν lead magnet και provider. Υποψήφιοι provider: MailerLite ή Brevo (δωρεάν πακέτο, εύκολα για την Christina). Το CLAUDE.md ενημερώθηκε.
 3. ~~**Hosting**~~ **Αποφασίστηκε (6/10):** Vercel. Redirects και SPA rewrite στο `vercel.json`, preview deploy ανά branch.
-4. **Consent Mode:** Default: CMP template μέσα στο GTM, χωρίς αλλαγή στο `index.html`.
+4. ~~**Consent Mode**~~ **Αποφασίστηκε (6/10):** CookieYes, ήδη στο GTM. Τίποτα στον κώδικα, μόνο έλεγχος στη Phase 7.
 5. **`@supabase/supabase-js` και `package-lock.json`:** Default: αφαιρώ τον κώδικα τώρα, το package το αφαιρείς εσύ ή μου δίνεις ρητή άδεια.
 6. **Prerender για LinkedIn previews:** Default: ναι, με μία νέα dev dependency.
 7. **Meta pixel:** επιβεβαίωσε ότι φορτώνει από το GTM (δεν είναι στο `index.html`).

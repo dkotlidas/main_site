@@ -13,7 +13,7 @@ const Book = () => {
 
   return (
     <>
-      <Seo title={book.title} description={book.description} path="/book" />
+      <Seo title={book.title} description={book.description} path="/book" ogImage="/og/book.jpg" />
       <Section className="pt-10 md:pt-16" innerClassName="max-w-3xl">
         <h1 className="text-4xl md:text-5xl">{book.title}</h1>
         <ul className="mt-6 space-y-2 text-muted-foreground">

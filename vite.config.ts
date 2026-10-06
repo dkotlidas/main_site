@@ -2,6 +2,7 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
+import { postbuild } from "./scripts/postbuild";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
@@ -19,6 +20,8 @@ export default defineConfig(({ mode }) => ({
     dirStyle: "nested",
     // Critical CSS inlining needs an extra package; not used
     beastiesOptions: false,
+    // 404.html and sitemap.xml from the generated pages
+    onFinished: postbuild,
   },
   resolve: {
     alias: {

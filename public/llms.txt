@@ -1,10 +1,12 @@
-# Dimitrios Kotlidas
+# Dimitris Kotlidas
 
-> Performance Marketing Specialist scaling paid campaigns profitably across Meta Ads and Google Ads. €500K+ managed, up to 11.93x ROAS. Based in Strasbourg, France, working remote-first with brands across Europe.
-
-Dimitrios Kotlidas helps e-commerce and lead-gen brands turn ad spend into predictable, scalable growth. Services include Meta Ads, Google Ads, tracking and attribution setup (server-side GTM), and consulting. Minimum engagement budget: €1,500/month in ad spend.
+> White label performance marketing for digital agencies. Dimitris Kotlidas runs Meta Ads, Google Ads and tracking (server-side GTM, Meta CAPI, Enhanced Conversions, GA4) under the agency's own brand, so the agency adds a service without hiring. Based in Strasbourg, working in English with agencies across Europe.
 
 ## Pages
 
-- [Home](/): Services, case studies, results, process, and contact.
-- [Privacy Policy](/privacy-policy): GDPR-compliant privacy and data handling policy.
+- [Home](https://dkotlidas.com/): The offer, how a project runs, results and common questions.
+- [Book a call](https://dkotlidas.com/book): Book a free 15 minute call.
+- [Webinar](https://dkotlidas.com/webinar): Free webinar for agency owners on white label digital marketing.
+- [Case studies](https://dkotlidas.com/case-studies): Results from Meta Ads and Google Ads accounts.
+- [About](https://dkotlidas.com/about): Background and how the work runs.
+- [Privacy](https://dkotlidas.com/privacy): Privacy policy.

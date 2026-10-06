@@ -34,6 +34,8 @@ export const routes: RouteRecord[] = [
       // Was /privacy-policy; 301 in vercel.json
       { path: "privacy", lazy: page(() => import("@/pages/Privacy")) },
       { path: "cookies", lazy: page(() => import("@/pages/Cookies")) },
+      // Prerendered as /404.html for the host; "*" handles client-side navigation
+      { path: "404", lazy: page(() => import("@/pages/NotFound")) },
       { path: "*", lazy: page(() => import("@/pages/NotFound")) },
     ],
   },

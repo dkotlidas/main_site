@@ -17,7 +17,7 @@ const Webinar = () => {
 
   return (
     <>
-      <Seo title="Free webinar for agency owners" description={webinarPage.description} path="/webinar" />
+      <Seo title="Free webinar for agency owners" description={webinarPage.description} path="/webinar" ogImage="/og/webinar.jpg" />
 
       <Section className="pt-10 md:pt-16">
         <div className="grid gap-12 md:grid-cols-[minmax(0,1fr)_320px] lg:gap-16">

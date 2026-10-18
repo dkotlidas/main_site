@@ -4,12 +4,13 @@ Open facts for the agency copy on the `redesign` branch. Unknown facts appear on
 
 ## Open
 
-| Open item | Where it shows |
-| --- | --- |
-| Final portrait photo, matching LinkedIn | `src/assets/dimitris-portrait.jpg` (Hero, About) |
-| Public email address. The email line in Contact was removed until there is one | Contact |
+Nothing open.
 
 ## Settled
+
+- Portrait photo: the current one stays.
+- Email: dkotlidas@dkotlidas.gr, shown in Contact as an "Email" link only. The address is not printed.
+- `public/llms.txt`: ad spend set to €3M+ per year.
 
 - Ad spend: €3M+ per year (stats strip, hero proof line, meta description, JSON-LD).
 - Active agency accounts: 5 to 7 at any time (hero proof line, stats strip, About).

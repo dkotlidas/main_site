@@ -2,7 +2,7 @@
 // Any unknown fact stays visible as [CONFIRM: ...] and is listed in docs/CONTENT-TODO.md.
 
 export const CALENDLY_URL = "https://calendly.com/dkotlidas-vrwr/free-strategy-call";
-export const LINKEDIN_URL = "https://www.linkedin.com/in/dimitrioskotlidas/"; // [CONFIRM: URL]
+export const LINKEDIN_URL = "https://www.linkedin.com/in/dimitrioskotlidas/";
 
 export const CTA_LABEL = "Book a Free 15min Call";
 
@@ -32,10 +32,8 @@ export const hero = {
   nameLast: "Kotlidas",
   nameRole: "Performance Marketing Specialist",
   sub: "Your clients ask for paid ads. I build and manage the campaigns and tracking behind your name, so you add a revenue line without hiring a performance team.",
-  // Shown only when url is set. [CONFIRM: Luma URL and date]
-  webinar: { label: "Watch the next webinar", url: null as string | null },
   proof: [
-    "[CONFIRM: number] active agency accounts",
+    "5 to 7 active agency accounts at any time",
     "5+ years in paid media",
     "€3M+ in ad spend managed per year",
     "Based in Strasbourg, working in UK and EU time zones",
@@ -53,8 +51,8 @@ export const stats: Array<{
   display?: string;
 }> = [
   { value: 3, prefix: "€", suffix: "M+", label: "Ad spend managed per year" },
-  { value: 0, prefix: "", suffix: "+", label: "Client accounts managed", display: "[CONFIRM]+" },
-  { value: 11.93, prefix: "", suffix: "x", label: "Peak ROAS [CONFIRM: still the figure to show]", decimal: true },
+  { value: 0, prefix: "", suffix: "", label: "Active agency accounts", display: "5-7" },
+  { value: 11.93, prefix: "", suffix: "x", label: "Peak ROAS", decimal: true },
   { value: 5, prefix: "", suffix: "+", label: "Years in paid media" },
 ];
 
@@ -66,8 +64,8 @@ export const problem = {
 export const caseStudies = {
   label: "Results",
   heading: "Case Studies",
-  intro: "Real accounts, real numbers. This is the work your clients would get under your brand.",
-  // [CONFIRM: which cases ran through an agency]. Do not add "for an agency" or "white label" until confirmed.
+  intro: "Real accounts, real numbers. Each one ran through a partner agency, under the agency's brand. Client names stay private.",
+  // All cases ran through partner agencies. Client names stay private.
   cases: [
     {
       title: "B2B lead generation",
@@ -141,7 +139,7 @@ export const services = {
     },
     {
       title: "Creative Direction",
-      desc: "Creative briefs and testing frameworks for ads that stop the scroll. Your design team produces the assets, or I brief them. [CONFIRM: whether production is offered]",
+      desc: "Creative briefs and testing frameworks for ads that stop the scroll. I write the briefs, and your design team produces the assets.",
     },
   ],
 };
@@ -149,13 +147,13 @@ export const services = {
 export const partnerVsHire = {
   label: "Why an External Partner",
   heading: "A specialist on call costs less than a salary on payroll.",
-  intro: "You can add this service by hiring or by partnering. Here is how the two compare for a small or mid-size agency.",
+  intro: "You can add this service by hiring or by partnering. Partnering adds capacity from day one. Here is how the two compare for a small or mid-size agency.",
   columns: { hire: "Hire an employee", partner: "Work with me" },
   rows: [
     {
       topic: "Cost before the first invoice",
       hire: "Salary, recruitment fee and equipment start on day one",
-      partner: "A monthly retainer that starts when the first client account goes live [CONFIRM: billing start]",
+      partner: "A monthly retainer that starts when the first client account goes live",
     },
     {
       topic: "Time to start",
@@ -170,7 +168,7 @@ export const partnerVsHire = {
     {
       topic: "When client volume drops",
       hire: "The salary stays",
-      partner: "The scope moves with the work, month to month [CONFIRM: contract terms]",
+      partner: "The scope moves with the work, month to month",
     },
     {
       topic: "When a client wants more",
@@ -197,7 +195,7 @@ export const partnerVsHire = {
     { title: "A new service line.", desc: "Something you can sell this month." },
     { title: "Clients stay.", desc: "You cover the channel they were about to go and find elsewhere." },
     { title: "No hiring risk.", desc: "No recruitment fee, no salary, no notice period." },
-    { title: "A non-compete agreement.", desc: "I never contact your clients. [CONFIRM: template contract available]" },
+    { title: "A non-compete agreement.", desc: "I never contact your clients." },
   ],
 };
 
@@ -257,7 +255,7 @@ export const about = {
   paragraphs: [
     "If your clients ask for Meta or Google Ads and you have nobody to run them, you are in a common spot. Most small agencies are good at design, development or SEO, and paid media is a different job.",
     "I am a performance marketer. For more than 5 years I have run campaigns on Meta and Google for clients across Europe, mostly in e-commerce and B2B lead generation, plus service businesses and events.",
-    "Today I work with [CONFIRM: 5 to 6] agencies at the same time. They sell the service and own the client relationship. I do the work, and their clients see only their agency.",
+    "Today I work with 5 to 7 agencies at the same time. They sell the service and own the client relationship. I do the work, and their clients see only their agency.",
     "I co-founded a DTC brand, so I know the pressure of making every ad euro count. I also teach Google Tag Manager at Knowcrunch, the largest digital marketing course in Greece. I am based in Strasbourg and work in UK and EU time zones.",
   ],
   badges: { location: "Based in Strasbourg", instructor: "GTM Instructor at Knowcrunch" },
@@ -268,7 +266,6 @@ export const contact = {
   label: "Get In Touch",
   heading: "15 minutes, no pitch deck.",
   body: "We look at your current situation, your capacity and what your clients ask for. If it fits, we plan the next step.",
-  email: "[CONFIRM: email address to show publicly]",
 };
 
 export const faq = {
@@ -285,7 +282,7 @@ export const faq = {
     },
     {
       q: "How does the collaboration work month to month?",
-      a: "A fixed monthly retainer, agreed before we start. Each month includes weekly optimisation, a report you can send to your client and a call if you want one. [CONFIRM: minimum contract length]",
+      a: "A fixed monthly retainer, agreed before we start. Each month includes weekly optimisation, a report you can send to your client and a call if you want one. It runs month to month, with no minimum term.",
     },
     {
       q: "How fast can we start?",
@@ -293,19 +290,11 @@ export const faq = {
     },
     {
       q: "Which tools do you use?",
-      a: "Meta Ads Manager, Google Ads, Google Tag Manager (web and server-side), GA4, Meta CAPI and enhanced conversions. [CONFIRM: reporting tool, for example Looker Studio]",
+      a: "Meta Ads Manager, Google Ads, Google Tag Manager (web and server-side), GA4, Meta CAPI and enhanced conversions. Reports are built in Looker Studio, or in whichever platform your agency already uses.",
     },
     {
       q: "Which countries and time zones do you cover?",
       a: "I work from Strasbourg, on Central European Time. I work with agencies in the UK and across Europe, and calls fit UK mornings and afternoons without trouble.",
-    },
-    {
-      q: "What is the minimum ad budget?",
-      a: "Client accounts under €500/month in ad spend are not a good fit. E-commerce accounts do best from about €3K/month. [CONFIRM: wording]",
-    },
-    {
-      q: "How quickly will my client see results?",
-      a: "For lead generation, cost per lead usually settles within about 30 days of launch. E-commerce takes longer, because the algorithm needs purchase data. [CONFIRM: wording]",
     },
     {
       q: "We do not have time to onboard a partner.",

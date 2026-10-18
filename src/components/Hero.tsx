@@ -35,16 +35,6 @@ const Hero = () => {
               >
                 {CTA_LABEL}
               </a>
-              {hero.webinar.url && (
-                <a
-                  href={hero.webinar.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm font-heading font-semibold text-foreground underline underline-offset-4 hover:text-primary transition-colors"
-                >
-                  {hero.webinar.label}
-                </a>
-              )}
             </div>
             <p className="text-xs text-muted-foreground mt-6 max-w-lg text-center lg:text-left">
               {hero.proof.join(" · ")}

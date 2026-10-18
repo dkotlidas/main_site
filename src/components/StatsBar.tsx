@@ -1,11 +1,5 @@
 import { useCountUp } from "@/hooks/useCountUp";
-
-const stats = [
-  { value: 3, prefix: "€", suffix: "M+", label: "Ad Spend Managed" },
-  { value: 20, prefix: "", suffix: "+", label: "Accounts Managed" },
-  { value: 10, prefix: "", suffix: "x", label: "Up to ROAS" },
-  { value: 5, prefix: "", suffix: "+", label: "Years Experience" },
-];
+import { stats } from "@/content/site";
 
 const StatsBar = () => {
   return (
@@ -21,8 +15,8 @@ const StatsBar = () => {
   );
 };
 
-function StatItem({ value, prefix, suffix, label, decimal }: {
-  value: number; prefix: string; suffix: string; label: string; decimal?: boolean;
+function StatItem({ value, prefix, suffix, label, decimal, display: fixed }: {
+  value: number; prefix: string; suffix: string; label: string; decimal?: boolean; display?: string;
 }) {
   const end = decimal ? Math.floor(value * 100) : value;
   const { count, ref } = useCountUp(end, 2000);
@@ -31,7 +25,7 @@ function StatItem({ value, prefix, suffix, label, decimal }: {
   return (
     <div ref={ref} className="text-center">
       <p className="text-3xl md:text-4xl font-heading font-extrabold gradient-text">
-        {prefix}{display}{suffix}
+        {fixed ?? `${prefix}${display}${suffix}`}
       </p>
       <p className="text-muted-foreground text-sm mt-1">{label}</p>
     </div>

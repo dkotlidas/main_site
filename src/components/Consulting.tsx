@@ -1,23 +1,9 @@
-import { TrendingUp, Code, UserCheck } from "lucide-react";
+import { TrendingUp, Code } from "lucide-react";
 import { useScrollFade } from "@/hooks/useScrollFade";
+import { consulting } from "@/content/site";
 
-const offerings = [
-  {
-    icon: TrendingUp,
-    title: "Performance Marketing Consulting",
-    desc: "If your agency is managing paid campaigns but struggling with strategy, structure, or results, I offer hands-on consulting to audit, restructure, and upskill your team's approach to Meta and Google Ads.",
-  },
-  {
-    icon: Code,
-    title: "GTM & Tracking Training",
-    desc: "If your team is flying blind on data, I run focused training sessions on Google Tag Manager, server-side tracking, Meta CAPI, and attribution, so your team can implement and maintain clean tracking independently.",
-  },
-  {
-    icon: UserCheck,
-    title: "1-on-1 Mentoring",
-    desc: "If you're a marketer or freelancer looking to level up in performance marketing, I offer structured 1-on-1 sessions covering campaign strategy, tracking setup, and career growth in paid media.",
-  },
-];
+const icons = [TrendingUp, Code];
+const offerings = consulting.items.map((s, i) => ({ ...s, icon: icons[i] }));
 
 const Consulting = () => {
   const ref = useScrollFade();
@@ -26,14 +12,14 @@ const Consulting = () => {
     <section className="py-12 md:py-20 px-4 bg-secondary/10">
       <div ref={ref} className="container mx-auto max-w-6xl scroll-fade">
         <div className="mb-14 text-center">
-          <p className="text-primary font-heading font-semibold tracking-widest uppercase text-sm mb-3">For Teams & Agencies</p>
-          <h2 className="text-4xl md:text-5xl font-heading font-extrabold mb-4">Consulting & Training</h2>
+          <p className="text-primary font-heading font-semibold tracking-widest uppercase text-sm mb-3">{consulting.label}</p>
+          <h2 className="text-4xl md:text-5xl font-heading font-extrabold mb-4">{consulting.heading}</h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
-            Beyond client work, I help agencies and marketing teams build internal performance marketing capabilities, from tracking fundamentals to full campaign management.
+            {consulting.intro}
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid sm:grid-cols-2 gap-5 max-w-4xl mx-auto">
           {offerings.map((s) => (
             <div
               key={s.title}
@@ -49,12 +35,12 @@ const Consulting = () => {
         </div>
 
         <div className="mt-12 text-center">
-          <p className="text-muted-foreground text-lg mb-4">Interested in training for your team?</p>
+          <p className="text-muted-foreground text-lg mb-4">{consulting.closing}</p>
           <a
             href="#contact"
             className="inline-flex items-center px-8 py-4 rounded-xl font-heading font-semibold text-sm tracking-wide bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
           >
-            Get in Touch
+            {consulting.button}
           </a>
         </div>
       </div>

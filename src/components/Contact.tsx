@@ -1,7 +1,7 @@
 import { useScrollFade } from "@/hooks/useScrollFade";
 import { useEffect, useRef } from "react";
-import { Linkedin } from "lucide-react";
-import { contact, CALENDLY_URL, LINKEDIN_URL } from "@/content/site";
+import { Linkedin, Mail } from "lucide-react";
+import { contact, CALENDLY_URL, LINKEDIN_URL, CONTACT_EMAIL } from "@/content/site";
 
 const Contact = () => {
   const scrollRef = useScrollFade();
@@ -37,6 +37,9 @@ const Contact = () => {
         <div className="mt-6 flex flex-wrap items-center justify-center gap-6 text-sm text-muted-foreground">
           <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-primary transition-colors">
             <Linkedin className="w-4 h-4" /> LinkedIn
+          </a>
+          <a href={`mailto:${CONTACT_EMAIL}`} className="flex items-center gap-2 hover:text-primary transition-colors">
+            <Mail className="w-4 h-4" /> Email
           </a>
         </div>
       </div>

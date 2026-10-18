@@ -3,6 +3,7 @@
 
 export const CALENDLY_URL = "https://calendly.com/dkotlidas-vrwr/free-strategy-call";
 export const LINKEDIN_URL = "https://www.linkedin.com/in/dimitrioskotlidas/";
+export const CONTACT_EMAIL = "dkotlidas@dkotlidas.gr";
 
 export const CTA_LABEL = "Book a Free 15min Call";
 

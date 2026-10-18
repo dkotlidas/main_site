@@ -6,7 +6,6 @@ Open facts for the agency copy on the `redesign` branch. Every item below still 
 | --- | --- | --- |
 | 1 | Number of active agency accounts | Hero proof line, stats strip ("Client accounts managed") |
 | 2 | Peak ROAS value to show (11.93x is in the old meta description) | Stats strip, meta description, JSON-LD |
-| 3 | Calendly URL for the 15 minute event. The current link still points at the old event | `CALENDLY_URL` in `src/content/site.ts` (Contact embed) |
 | 4 | Final portrait photo, matching LinkedIn | `src/assets/dimitris-portrait.jpg` (Hero, About) |
 | 5 | LinkedIn URL and public email for footer and contact | `LINKEDIN_URL`, `contact.email` in `src/content/site.ts` |
 | 6 | Which case studies, if any, ran through an agency, and whether any client allows a name | Case Studies cards |
@@ -19,8 +18,10 @@ Open facts for the agency copy on the `redesign` branch. Every item below still 
 | 13 | "Increase capacity in 10 days" (LinkedIn headline claim): use it on the site or not | Not used yet |
 | 14 | Wording of the two FAQ answers on minimum budget and time to results | FAQ |
 
-## Notes for Dimitris
+## Settled
 
-- The stats strip now shows €500K+ ad spend, taken from the brief. The live site on `main` shows €3M+. Confirm which figure is correct.
-- The Privacy Policy, admin pages and `public/llms.txt` still say "Dimitrios". They were left out on purpose: the privacy policy may need the legal name. Decide whether to change them.
-- The repo has no cookie banner component. Consent is probably handled through GTM, and nothing there was touched.
+- Ad spend: €3M+ per year (stats strip, hero proof line, meta description, JSON-LD).
+- Calendly: the current link stays.
+- "Book a Call" scrolls to the Contact section with the Calendly embed.
+- Privacy Policy, admin pages and `public/llms.txt` keep "Dimitrios".
+- Cookie consent runs through GTM. No banner component in the repo.

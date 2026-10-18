@@ -1,7 +1,7 @@
 // All page copy for the home page lives here. Components read from this file.
 // Any unknown fact stays visible as [CONFIRM: ...] and is listed in docs/CONTENT-TODO.md.
 
-export const CALENDLY_URL = "https://calendly.com/dkotlidas-vrwr/free-strategy-call"; // [CONFIRM: 15 minute event type URL]
+export const CALENDLY_URL = "https://calendly.com/dkotlidas-vrwr/free-strategy-call";
 export const LINKEDIN_URL = "https://www.linkedin.com/in/dimitrioskotlidas/"; // [CONFIRM: URL]
 
 export const CTA_LABEL = "Book a Free 15min Call";
@@ -9,7 +9,7 @@ export const CTA_LABEL = "Book a Free 15min Call";
 export const meta = {
   title: "White Label Performance Marketing for Agencies | Dimitris Kotlidas",
   description:
-    "I run Meta Ads, Google Ads and tracking under your agency's brand. €500K+ in ad spend managed, up to 11.93x ROAS. Book a free 15 minute call.",
+    "I run Meta Ads, Google Ads and tracking under your agency's brand. €3M+ in ad spend managed per year, up to 11.93x ROAS. Book a free 15 minute call.",
   author: "Dimitris Kotlidas",
 };
 
@@ -37,7 +37,7 @@ export const hero = {
   proof: [
     "[CONFIRM: number] active agency accounts",
     "5+ years in paid media",
-    "€500K+ in ad spend managed",
+    "€3M+ in ad spend managed per year",
     "Based in Strasbourg, working in UK and EU time zones",
   ],
   portraitAlt: "Dimitris Kotlidas, Performance Marketing Specialist", // [CONFIRM: final photo file]
@@ -52,7 +52,7 @@ export const stats: Array<{
   decimal?: boolean;
   display?: string;
 }> = [
-  { value: 500, prefix: "€", suffix: "K+", label: "Ad spend managed" },
+  { value: 3, prefix: "€", suffix: "M+", label: "Ad spend managed per year" },
   { value: 0, prefix: "", suffix: "+", label: "Client accounts managed", display: "[CONFIRM]+" },
   { value: 11.93, prefix: "", suffix: "x", label: "Peak ROAS [CONFIRM: still the figure to show]", decimal: true },
   { value: 5, prefix: "", suffix: "+", label: "Years in paid media" },

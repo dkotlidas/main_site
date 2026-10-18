@@ -1,5 +1,8 @@
 import { TrendingUp, ShoppingBag, BarChart3, Users } from "lucide-react";
 import { useScrollFade } from "@/hooks/useScrollFade";
+import { caseStudies, CTA_LABEL } from "@/content/site";
+
+const icons = [Users, TrendingUp, BarChart3, Users];
 
 const cases: Array<{
   icon: typeof Users;
@@ -9,52 +12,7 @@ const cases: Array<{
   stats: { label: string; value: string }[];
   description: string;
   testimonial?: { quote: string; author: string };
-}> = [
-  {
-    icon: Users,
-    title: "B2B Lead Generation",
-    tag: "B2B · Meta Ads",
-    heroStat: { label: "Leads", value: "312" },
-    stats: [
-      { label: "CPL", value: "€41" },
-      { label: "Revenue Generated", value: "€27K" },
-    ],
-    description: "Ran a lead generation campaign for a B2B company targeting SMB decision-makers. Delivered consistent pipeline growth with a CPL well below the industry average.",
-  },
-  {
-    icon: TrendingUp,
-    title: "Kitchenware E-Commerce",
-    tag: "Kitchenware E-Commerce · Meta & Google Ads",
-    heroStat: { label: "ROAS", value: "4.35x" },
-    stats: [
-      { label: "Revenue", value: "€171K+" },
-      { label: "Purchases", value: "2,870" },
-    ],
-    description: "Built a full-funnel Meta & Google Ads strategy for a kitchenware brand, driving 2,870 purchases and €171K+ in revenue over a 4-month period.",
-  },
-  {
-    icon: BarChart3,
-    title: "Local Service Business — Lead Gen",
-    tag: "Service Business · Meta & Google Ads",
-    heroStat: { label: "Growth", value: "3.2x" },
-    stats: [
-      { label: "CPL", value: "€55" },
-      { label: "Qualified Leads", value: "180" },
-    ],
-    description: "Built a full-funnel lead generation system for a local service provider, combining Meta awareness with Google intent capture. Achieved a stable CPL within 30 days of launch.",
-  },
-  {
-    icon: Users,
-    title: "B2B Lead Generation",
-    tag: "B2B · Meta Ads",
-    heroStat: { label: "Leads", value: "402" },
-    stats: [
-      { label: "CPL", value: "€78" },
-      { label: "Channel", value: "B2B" },
-    ],
-    description: "Ran a 3-month B2B lead generation campaign on Meta for a high-ticket service, delivering 402 qualified leads at €78 CPL, consistently below the industry benchmark.",
-  },
-];
+}> = caseStudies.cases.map((c, i) => ({ ...c, icon: icons[i] ?? Users }));
 
 const CaseStudies = () => {
   const ref = useScrollFade();
@@ -63,14 +21,15 @@ const CaseStudies = () => {
     <section id="case-studies" className="section-padding">
       <div ref={ref} className="container mx-auto max-w-6xl scroll-fade">
         <div className="mb-14 text-center">
-          <p className="text-primary font-heading font-semibold tracking-widest uppercase text-sm mb-3">Results</p>
-          <h2 className="text-4xl md:text-5xl font-heading font-extrabold">Case Studies</h2>
+          <p className="text-primary font-heading font-semibold tracking-widest uppercase text-sm mb-3">{caseStudies.label}</p>
+          <h2 className="text-4xl md:text-5xl font-heading font-extrabold mb-4">{caseStudies.heading}</h2>
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">{caseStudies.intro}</p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6">
-          {cases.map((c) => (
+          {cases.map((c, i) => (
             <div
-              key={c.title}
+              key={i}
               className="bg-card border border-border rounded-xl p-6 md:p-8 card-hover flex flex-col"
             >
               <div className="flex items-center gap-3 mb-4">
@@ -112,13 +71,13 @@ const CaseStudies = () => {
         </div>
 
         <div className="mt-14 bg-card border border-border rounded-2xl p-10 md:p-14 text-center">
-          <h3 className="text-2xl md:text-3xl font-heading font-extrabold mb-3">Want results like these?</h3>
-          <p className="text-muted-foreground text-lg mb-6">Let's talk about your brand and what's possible.</p>
+          <h3 className="text-2xl md:text-3xl font-heading font-extrabold mb-3">{caseStudies.closingHeading}</h3>
+          <p className="text-muted-foreground text-lg mb-6">{caseStudies.closingBody}</p>
           <a
             href="#contact"
             className="inline-flex items-center px-8 py-4 rounded-xl font-heading font-semibold text-sm tracking-wide bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
           >
-            Book a Free 30min Call
+            {CTA_LABEL}
           </a>
         </div>
       </div>

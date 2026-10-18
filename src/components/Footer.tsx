@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import { Linkedin, Instagram, Facebook } from "lucide-react";
+import { footer, LINKEDIN_URL } from "@/content/site";
 
 const socials = [
-  { icon: Linkedin, href: "https://www.linkedin.com/in/dimitrioskotlidas/", label: "LinkedIn" },
+  { icon: Linkedin, href: LINKEDIN_URL, label: "LinkedIn" },
   { icon: Instagram, href: "https://www.instagram.com/kotlid/", label: "Instagram" },
   { icon: Facebook, href: "https://www.facebook.com/dimitrios.kotlidas/", label: "Facebook" },
 ];
@@ -10,7 +11,7 @@ const socials = [
 const Footer = () => (
   <footer className="border-t border-border py-8 text-muted-foreground text-sm">
     <div className="container mx-auto max-w-6xl px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <span>© {new Date().getFullYear()} Dimitrios Kotlidas. All rights reserved.</span>
+      <span>© {new Date().getFullYear()} {footer.name}. All rights reserved.</span>
       <div className="flex items-center gap-4">
         {socials.map((s) => (
           <a

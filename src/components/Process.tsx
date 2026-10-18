@@ -1,37 +1,17 @@
 import { useScrollFade } from "@/hooks/useScrollFade";
+import { process, CTA_LABEL } from "@/content/site";
 
-const steps = [
-  {
-    num: "01",
-    title: "Strategy Call",
-    desc: "We talk about your business, goals, and current performance. No pitch, just clarity.",
-  },
-  {
-    num: "02",
-    title: "Audit & Proposal",
-    desc: "I review your accounts and send a clear plan with scope, timeline, and expected outcomes.",
-  },
-  {
-    num: "03",
-    title: "Onboarding",
-    desc: "We align on tracking, access, and creative assets. Setup takes 3–5 days.",
-  },
-  {
-    num: "04",
-    title: "Ongoing Optimization",
-    desc: "Weekly optimizations, monthly reporting, and continuous testing to compound results.",
-  },
-];
+const steps = process.steps;
 
 const Process = () => {
   const ref = useScrollFade();
 
   return (
-    <section className="py-12 md:py-20 px-4 bg-card/30">
+    <section id="how-it-works" className="py-12 md:py-20 px-4 bg-card/30">
       <div ref={ref} className="container mx-auto max-w-6xl scroll-fade">
         <div className="mb-14 text-center">
-          <p className="text-primary font-heading font-semibold tracking-widest uppercase text-sm mb-3">How It Works</p>
-          <h2 className="text-4xl md:text-5xl font-heading font-extrabold">From First Call to Full Execution</h2>
+          <p className="text-primary font-heading font-semibold tracking-widest uppercase text-sm mb-3">{process.label}</p>
+          <h2 className="text-4xl md:text-5xl font-heading font-extrabold">{process.heading}</h2>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -45,6 +25,19 @@ const Process = () => {
               <p className="text-muted-foreground text-sm leading-relaxed">{s.desc}</p>
             </div>
           ))}
+        </div>
+
+        <div className="mt-10 max-w-2xl mx-auto bg-primary/10 border border-primary/20 rounded-xl px-6 py-4 text-center">
+          <p className="text-sm text-foreground">{process.note}</p>
+        </div>
+
+        <div className="mt-8 text-center">
+          <a
+            href="#contact"
+            className="inline-flex items-center px-8 py-4 rounded-xl font-heading font-semibold text-sm tracking-wide bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+          >
+            {CTA_LABEL}
+          </a>
         </div>
       </div>
     </section>

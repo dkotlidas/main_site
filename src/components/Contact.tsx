@@ -1,7 +1,7 @@
 import { useScrollFade } from "@/hooks/useScrollFade";
 import { useEffect, useRef } from "react";
-
-const CALENDLY_URL = "https://calendly.com/dkotlidas-vrwr/free-strategy-call";
+import { Linkedin, Mail } from "lucide-react";
+import { contact, CALENDLY_URL, LINKEDIN_URL } from "@/content/site";
 
 const Contact = () => {
   const scrollRef = useScrollFade();
@@ -22,9 +22,9 @@ const Contact = () => {
     <section id="contact" className="py-12 md:py-20 px-4">
       <div ref={scrollRef} className="container mx-auto max-w-3xl scroll-fade">
         <div className="text-center mb-10">
-          <p className="text-primary font-heading font-semibold tracking-widest uppercase text-sm mb-3">Get In Touch</p>
-          <h2 className="text-4xl md:text-5xl font-heading font-extrabold">Book a Free 30min Call</h2>
-          <p className="text-muted-foreground mt-3 font-body">Pick a time that works for you and let's talk about scaling your ads.</p>
+          <p className="text-primary font-heading font-semibold tracking-widest uppercase text-sm mb-3">{contact.label}</p>
+          <h2 className="text-4xl md:text-5xl font-heading font-extrabold">{contact.heading}</h2>
+          <p className="text-muted-foreground mt-3 font-body">{contact.body}</p>
         </div>
 
         <div
@@ -33,6 +33,15 @@ const Contact = () => {
           data-url={`${CALENDLY_URL}?hide_gdpr_banner=1&background_color=1a1a2e&text_color=ffffff&primary_color=6d5acd`}
           style={{ minWidth: '320px', height: '900px' }}
         />
+
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-6 text-sm text-muted-foreground">
+          <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-primary transition-colors">
+            <Linkedin className="w-4 h-4" /> LinkedIn
+          </a>
+          <span className="flex items-center gap-2">
+            <Mail className="w-4 h-4" /> {contact.email}
+          </span>
+        </div>
       </div>
     </section>
   );

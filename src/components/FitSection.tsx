@@ -1,25 +1,16 @@
 import { CheckCircle, XCircle } from "lucide-react";
+import { fit } from "@/content/site";
 
-const goodFit = [
-  "E-commerce brands spending €3K+/month on ads",
-  "Lead gen businesses that need qualified pipeline",
-  "Agencies that want to improve client results",
-  "Teams that need tracking & attribution fixed",
-];
-
-const notFit = [
-  "Businesses with no existing product-market fit",
-  "One-off requests with no ongoing commitment",
-  "Budgets under €500/month in ad spend",
-];
+const goodFit = fit.good;
+const notFit = fit.notFit;
 
 const FitSection = () => {
   return (
     <section className="py-12 md:py-20 px-4">
       <div className="container mx-auto max-w-6xl">
         <div className="mb-14 text-center">
-          <p className="text-primary font-heading font-semibold tracking-widest uppercase text-sm mb-3">Who I Work With</p>
-          <h2 className="text-4xl md:text-5xl font-heading font-extrabold">Is This a Good Fit?</h2>
+          <p className="text-primary font-heading font-semibold tracking-widest uppercase text-sm mb-3">{fit.label}</p>
+          <h2 className="text-4xl md:text-5xl font-heading font-extrabold">{fit.heading}</h2>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6">

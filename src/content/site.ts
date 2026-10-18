@@ -26,12 +26,12 @@ export const nav = {
 
 export const hero = {
   eyebrow: "White Label Performance Marketing for Agencies",
-  headline: "Sell Meta Ads and Google Ads under your own brand.",
-  headlineAccent: "I run them.",
+  headline: "Offer Meta Ads and Google Ads to your clients,",
+  headlineAccent: "without hiring a team.",
   nameFirst: "Dimitris",
   nameLast: "Kotlidas",
   nameRole: "Performance Marketing Specialist",
-  sub: "Your clients ask for paid ads. I build and manage the campaigns and tracking behind your name, so you add a revenue line without hiring a performance team.",
+  sub: "Your clients ask for paid ads. I build and manage the campaigns and tracking behind your name, so you add a new revenue line from day one.",
   proof: [
     "5 to 7 active agency accounts at any time",
     "5+ years in paid media",

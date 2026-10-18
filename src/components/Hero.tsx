@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import portrait from "@/assets/dimitris-portrait.jpg";
+import { hero, CTA_LABEL } from "@/content/site";
 
 const Hero = () => {
   return (
@@ -16,25 +17,38 @@ const Hero = () => {
             className="flex flex-col items-center lg:items-start"
           >
             <p className="text-primary font-heading font-semibold tracking-widest uppercase text-sm mb-4 text-center lg:text-left">
-              Performance Marketing Specialist, Meta & Google Ads
+              {hero.eyebrow}
             </p>
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-heading font-extrabold leading-[1.05] mb-6 text-center lg:text-left">
-              Dimitrios <span className="text-primary">Kotlidas</span>
-              <span className="block text-2xl sm:text-3xl md:text-4xl font-heading font-semibold text-muted-foreground mt-3">
-                Performance Marketing Specialist — Meta &amp; Google Ads
-              </span>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-extrabold leading-[1.05] mb-4 text-center lg:text-left">
+              {hero.headline} <span className="text-primary">{hero.headlineAccent}</span>
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8 max-w-lg text-center lg:text-left mx-auto lg:mx-0">
-              I help brands turn ad spend into predictable, scalable growth across Meta and Google.
+            <p className="text-xl sm:text-2xl font-heading font-semibold text-muted-foreground mb-6 text-center lg:text-left">
+              {hero.nameFirst} <span className="text-primary">{hero.nameLast}</span>, {hero.nameRole}
             </p>
-            <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
+            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8 max-w-lg text-center lg:text-left mx-auto lg:mx-0">
+              {hero.sub}
+            </p>
+            <div className="flex flex-wrap items-center gap-4 justify-center lg:justify-start">
               <a
                 href="#contact"
                 className="inline-flex items-center px-7 py-3.5 rounded-lg font-heading font-semibold text-sm tracking-wide bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
               >
-                Book a Free 30min Call
+                {CTA_LABEL}
               </a>
+              {hero.webinar.url && (
+                <a
+                  href={hero.webinar.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm font-heading font-semibold text-foreground underline underline-offset-4 hover:text-primary transition-colors"
+                >
+                  {hero.webinar.label}
+                </a>
+              )}
             </div>
+            <p className="text-xs text-muted-foreground mt-6 max-w-lg text-center lg:text-left">
+              {hero.proof.join(" · ")}
+            </p>
           </motion.div>
 
           <motion.div
@@ -47,7 +61,7 @@ const Hero = () => {
               <div className="absolute inset-0 rounded-2xl bg-primary/20 blur-2xl scale-110" />
               <img
                 src={portrait}
-                alt="Dimitrios Kotlidas, Performance Marketing Specialist"
+                alt={hero.portraitAlt}
                 width={384}
                 height={500}
                 fetchPriority="high"

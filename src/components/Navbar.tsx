@@ -1,12 +1,8 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { nav } from "@/content/site";
 
-const links = [
-  { label: "Results", href: "#case-studies" },
-  { label: "Services", href: "#services" },
-  { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" },
-];
+const links = nav.links;
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -27,7 +23,7 @@ const Navbar = () => {
             href="#contact"
             className="inline-flex items-center px-5 py-2 rounded-lg font-heading font-semibold text-sm bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
           >
-            Work With Me
+            {nav.button}
           </a>
         </div>
         <button
@@ -51,7 +47,7 @@ const Navbar = () => {
             onClick={() => setOpen(false)}
             className="block text-center px-5 py-2 rounded-lg font-heading font-semibold text-sm bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
           >
-            Work With Me
+            {nav.button}
           </a>
         </div>
       )}

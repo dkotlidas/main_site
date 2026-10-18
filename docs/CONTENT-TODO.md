@@ -10,7 +10,7 @@ Nothing open.
 
 - Portrait photo: the current one stays.
 - Email: dkotlidas@dkotlidas.gr, shown in Contact as an "Email" link only. The address is not printed.
-- `public/llms.txt`: ad spend set to €3M+ per year.
+- `public/llms.txt`: rewritten for the agency audience, name Dimitris, €3M+ per year.
 
 - Ad spend: €3M+ per year (stats strip, hero proof line, meta description, JSON-LD).
 - Active agency accounts: 5 to 7 at any time (hero proof line, stats strip, About).
@@ -26,5 +26,5 @@ Nothing open.
 - "Increase capacity from day one": used in the Partner vs hire intro.
 - FAQ: the minimum budget and time to results questions were removed.
 - "Book a Call" scrolls to the Contact section with the Calendly embed.
-- Privacy Policy, admin pages and `public/llms.txt` keep "Dimitrios".
+- Privacy Policy and admin pages keep "Dimitrios".
 - Cookie consent runs through GTM. No banner component in the repo.

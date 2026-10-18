@@ -1,10 +1,18 @@
-# Dimitrios Kotlidas
+# Dimitris Kotlidas
 
-> Performance Marketing Specialist scaling paid campaigns profitably across Meta Ads and Google Ads. €3M+ in ad spend managed per year, up to 11.93x ROAS. Based in Strasbourg, France, working remote-first with brands across Europe.
+> White label performance marketing for agencies. I run Meta Ads, Google Ads and tracking under your agency's brand. €3M+ in ad spend managed per year, up to 11.93x ROAS. Based in Strasbourg, France, working in UK and EU time zones.
 
-Dimitrios Kotlidas helps e-commerce and lead-gen brands turn ad spend into predictable, scalable growth. Services include Meta Ads, Google Ads, tracking and attribution setup (server-side GTM), and consulting. Minimum engagement budget: €1,500/month in ad spend.
+Dimitris Kotlidas works with web development, SEO, branding and design agencies that have no in-house performance marketing team. The agency sells the service and owns the client relationship. Dimitris builds and manages the campaigns, tracking and reporting under the agency's brand, under a non-compete agreement.
+
+Services: Meta and social ads, Google Ads, Google Tag Manager setup, server-side tracking and Meta CAPI, paid media strategy, creative briefs. Also consulting and GTM training for agencies that want to build the skill in-house.
+
+How it works: audit, competitor research, website audit, strategy, media plan and budget, execution (setup in 3 to 5 days), weekly optimisation and monthly reporting in the agency's template. Month to month, no minimum term.
+
+Good fit: client accounts with a real offer, such as e-commerce spending €3K+/month on ads or lead gen that needs qualified pipeline. Not a fit: client accounts under €500/month in ad spend.
+
+Contact: book a free 15 minute call at https://dkotlidas.com/#contact
 
 ## Pages
 
-- [Home](/): Services, case studies, results, process, and contact.
+- [Home](/): White label services, case studies, partner vs hire comparison, process, FAQ and contact.
 - [Privacy Policy](/privacy-policy): GDPR-compliant privacy and data handling policy.
